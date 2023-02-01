@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://models/armor_stand.material" type="Material" id=1]
 [ext_resource path="res://OrbitCamera.gd" type="Script" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://ArmorStandTags.gd" type="Script" id=12]
 [ext_resource path="res://DisabledSlots.gd" type="Script" id=13]
 [ext_resource path="res://EquipedItems.gd" type="Script" id=14]
+[ext_resource path="res://BottomTabs.gd" type="Script" id=15]
+[ext_resource path="res://icons/gn.png" type="Texture" id=16]
 
 [sub_resource type="SpatialMaterial" id=15]
 flags_transparent = true
@@ -189,6 +191,14 @@ surfaces/0 = {
 "vertex_count": 24
 }
 
+[sub_resource type="DynamicFont" id=22]
+size = 29
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 25
+font_data = ExtResource( 8 )
+
 [sub_resource type="DynamicFont" id=20]
 size = 13
 font_data = ExtResource( 8 )
@@ -217,6 +227,7 @@ mesh = SubResource( 13 )
 [node name="baseplate" type="StaticBody" parent="armor_stand"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0308887, 0 )
 script = ExtResource( 7 )
+segment_name = "rotation"
 y_only = true
 
 [node name="CollisionShape" type="CollisionShape" parent="armor_stand/baseplate"]
@@ -227,6 +238,7 @@ shape = SubResource( 21 )
 [node name="head_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26911, 0 )
 script = ExtResource( 7 )
+segment_name = "head"
 
 [node name="mesh" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/head_bone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.34375, 0 )
@@ -239,6 +251,7 @@ shape = SubResource( 14 )
 [node name="left_arm_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390625, 1.29724, 0 )
 script = ExtResource( 7 )
+segment_name = "left_arm"
 
 [node name="left_arm" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/left_arm_bone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.390625, -1.32813, 0 )
@@ -251,6 +264,7 @@ shape = SubResource( 16 )
 [node name="right_arm_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.390625, 1.29724, 0 )
 script = ExtResource( 7 )
+segment_name = "right_arm"
 
 [node name="right_arm" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/right_arm_bone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390625, -1.32813, 0 )
@@ -263,6 +277,7 @@ shape = SubResource( 16 )
 [node name="body_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43786, 0 )
 script = ExtResource( 7 )
+segment_name = "body"
 
 [node name="left_rib" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/body_bone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.46875, 0 )
@@ -299,6 +314,7 @@ shape = SubResource( 18 )
 [node name="left_leg_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0.719111, 0 )
 script = ExtResource( 7 )
+segment_name = "left_leg"
 
 [node name="left_leg" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/left_leg_bone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.75, 0 )
@@ -311,6 +327,7 @@ shape = SubResource( 16 )
 [node name="right_leg_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0.719111, 0 )
 script = ExtResource( 7 )
+segment_name = "right_leg"
 
 [node name="right_leg" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/right_leg_bone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -0.75, 0 )
@@ -337,6 +354,15 @@ directional_shadow_max_distance = 6.9
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.196078 )
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 218.0
+margin_bottom = 28.0
+rect_scale = Vector2( 0.75, 0.75 )
+text = "Armor Stand GeNerator 0.1"
+
 [node name="ViewportArea" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -345,78 +371,159 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BottomTabs" type="TabContainer" parent="CanvasLayer"]
+[node name="InfoButton" type="Button" parent="CanvasLayer"]
+visible = false
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 40.0
+margin_bottom = 40.0
+hint_tooltip = "Toggles the lighting
+Local : lighting rotates with the camera
+Global : lighting stays still"
+theme_type_variation = "StandaloneButton"
+action_mode = 0
+icon = ExtResource( 16 )
+expand_icon = true
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 anchor_top = 1.0
+anchor_right = 0.992
+anchor_bottom = 1.0
+margin_right = 8.19196
+mouse_filter = 2
+
+[node name="BottomTabs" type="TabContainer" parent="CanvasLayer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -56.0
+margin_top = -24.0
 margin_right = -192.0
-tab_align = 0
+margin_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_align = 2
+script = ExtResource( 15 )
 
-[node name="Export" type="Tabs" parent="CanvasLayer/BottomTabs"]
+[node name="Hide" type="Tabs" parent="CanvasLayer/Control/BottomTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 25.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BottomTabs/Export"]
+[node name="Home" type="Tabs" parent="CanvasLayer/Control/BottomTabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/BottomTabs/Home"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/BottomTabs/Export/VBoxContainer"]
-margin_right = 832.0
-margin_bottom = 31.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer"]
+margin_right = 818.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
+margin_right = 818.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 22 )
+text = "Armor Stand GeNerator"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 818.0
+margin_bottom = 82.0
+text = "by: GNamimates
+version: 0.1"
+fit_content_height = true
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
+margin_top = 86.0
+margin_right = 818.0
+margin_bottom = 90.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
+margin_top = 94.0
+margin_right = 818.0
+margin_bottom = 125.0
+custom_fonts/font = SubResource( 23 )
+text = "Changelog"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
+margin_top = 129.0
+margin_right = 818.0
+margin_bottom = 192.0
+text = "V 0.1
+* Added the Editor
+* Added the Armor Stand"
+fit_content_height = true
+
+[node name="Export" type="Tabs" parent="CanvasLayer/Control/BottomTabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BottomTabs/Export"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/BottomTabs/Export/VBoxContainer"]
+margin_right = 831.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 0
 
-[node name="ClipboardButton" type="Button" parent="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer"]
 margin_right = 141.0
-margin_bottom = 31.0
+margin_bottom = 41.0
+
+[node name="ClipboardButton" type="Button" parent="CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 141.0
+margin_bottom = 20.0
 text = "Copy to Clipboard"
 
-[node name="Text" type="TextEdit" parent="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer"]
+[node name="Info" type="RichTextLabel" parent="CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 141.0
+margin_bottom = 41.0
+custom_colors/default_color = Color( 1, 1, 1, 0.376471 )
+custom_fonts/normal_font = SubResource( 20 )
+text = "Minecraft 1.16+"
+fit_content_height = true
+
+[node name="toolong" type="RichTextLabel" parent="CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 62.0
+margin_right = 141.0
+margin_bottom = 113.0
+custom_colors/default_color = Color( 1, 1, 1, 0.376471 )
+custom_fonts/normal_font = SubResource( 20 )
+text = "command is too long for chat, command block required"
+fit_content_height = true
+
+[node name="Command" type="TextEdit" parent="CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer"]
 margin_left = 141.0
-margin_right = 832.0
-margin_bottom = 31.0
+margin_right = 831.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "/summon reddit:moderator {Passenger:{id:\"discord:moderator\"}}"
 readonly = true
 wrap_enabled = true
-
-[node name="X" type="HBoxContainer" parent="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer/Text"]
-margin_left = 563.0
-margin_top = -96.0
-margin_right = 683.0
-margin_bottom = -72.0
-custom_constants/separation = 0
-
-[node name="Margin" type="ColorRect" parent="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer/Text/X"]
-margin_right = 4.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 4, 0 )
-color = Color( 1, 0.192157, 0.192157, 1 )
-
-[node name="xval" type="SpinBox" parent="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer/Text/X"]
-margin_left = 4.0
-margin_right = 120.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
-min_value = -1e+08
-max_value = 1e+08
-allow_greater = true
-allow_lesser = true
 
 [node name="PropertiesTabs" type="TabContainer" parent="CanvasLayer"]
 visible = false
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.013
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.013
 margin_left = -320.0
-margin_top = -176.0
+margin_top = 40.2
 margin_right = -200.0
-margin_bottom = -40.0
+margin_bottom = 176.2
 tab_align = 0
 
 [node name="Properties" type="Tabs" parent="CanvasLayer/PropertiesTabs"]
@@ -433,6 +540,29 @@ anchor_bottom = 1.0
 margin_right = 120.0
 margin_bottom = 20.0
 text = "Rotation"
+
+[node name="X" type="HBoxContainer" parent="CanvasLayer/PropertiesTabs/Properties/VBoxContainer"]
+margin_top = 24.0
+margin_right = 120.0
+margin_bottom = 48.0
+custom_constants/separation = 0
+
+[node name="Margin" type="ColorRect" parent="CanvasLayer/PropertiesTabs/Properties/VBoxContainer/X"]
+margin_right = 4.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 4, 0 )
+color = Color( 1, 0.192157, 0.192157, 1 )
+
+[node name="xval" type="SpinBox" parent="CanvasLayer/PropertiesTabs/Properties/VBoxContainer/X"]
+margin_left = 4.0
+margin_right = 120.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+min_value = -1e+08
+max_value = 1e+08
+step = 0.1
+allow_greater = true
+allow_lesser = true
 
 [node name="Y" type="HBoxContainer" parent="CanvasLayer/PropertiesTabs/Properties/VBoxContainer"]
 margin_top = 52.0
@@ -453,6 +583,7 @@ margin_bottom = 24.0
 size_flags_horizontal = 3
 min_value = -1e+08
 max_value = 1e+08
+step = 0.1
 allow_greater = true
 allow_lesser = true
 
@@ -475,6 +606,7 @@ margin_bottom = 24.0
 size_flags_horizontal = 3
 min_value = -1e+08
 max_value = 1e+08
+step = 0.1
 allow_greater = true
 allow_lesser = true
 
@@ -487,6 +619,7 @@ margin_top = 16.0
 tab_align = 0
 
 [node name="Entity Data" type="Tabs" parent="CanvasLayer/RightTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 25.0
@@ -509,96 +642,116 @@ margin_bottom = 20.0
 text = "NBT Tags"
 align = 1
 
-[node name="ArmorStandLabel" type="Label" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+[node name="CustomNameLabel" type="Label" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 24.0
 margin_right = 192.0
 margin_bottom = 44.0
+text = "Custom Name"
+
+[node name="CustomName" type="LineEdit" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 48.0
+margin_right = 192.0
+margin_bottom = 72.0
+
+[node name="RawJsonNameCheckBox" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 76.0
+margin_right = 192.0
+margin_bottom = 96.0
+text = "Raw Json Name"
+
+[node name="ShowCustomNameCheckBox" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 100.0
+margin_right = 192.0
+margin_bottom = 120.0
+text = "Show Custom Name"
+
+[node name="Margin3" type="MarginContainer" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 124.0
+margin_right = 192.0
+margin_bottom = 131.981
+rect_min_size = Vector2( 0, 7.981 )
+
+[node name="ArmorStandLabel" type="Label" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 135.0
+margin_right = 192.0
+margin_bottom = 155.0
 text = "Armor Stand"
 
 [node name="InvisibleOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 48.0
+margin_top = 159.0
 margin_right = 192.0
-margin_bottom = 68.0
+margin_bottom = 179.0
 text = "Invisible"
 
 [node name="MarkerOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 72.0
+margin_top = 183.0
 margin_right = 192.0
-margin_bottom = 92.0
+margin_bottom = 203.0
 text = "Marker"
 
 [node name="SmallOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 96.0
+margin_top = 207.0
 margin_right = 192.0
-margin_bottom = 116.0
+margin_bottom = 227.0
 text = "Small"
 
 [node name="ShowArmsOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 120.0
+margin_top = 231.0
 margin_right = 192.0
-margin_bottom = 140.0
+margin_bottom = 251.0
 pressed = true
 text = "Show Arms"
 
 [node name="NoBasePlateOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 144.0
+margin_top = 255.0
 margin_right = 192.0
-margin_bottom = 164.0
+margin_bottom = 275.0
 text = "No Base Plate"
 
 [node name="Margin" type="MarginContainer" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 168.0
+margin_top = 279.0
 margin_right = 192.0
-margin_bottom = 175.981
+margin_bottom = 286.981
 rect_min_size = Vector2( 0, 7.981 )
 
 [node name="EntityLabel" type="Label" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 179.0
+margin_top = 290.0
 margin_right = 192.0
-margin_bottom = 199.0
+margin_bottom = 310.0
 text = "Entity"
 
 [node name="InvunerableOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 203.0
+margin_top = 314.0
 margin_right = 192.0
-margin_bottom = 223.0
+margin_bottom = 334.0
 text = "Invunerable"
 
 [node name="NoGravityOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 227.0
+margin_top = 338.0
 margin_right = 192.0
-margin_bottom = 247.0
+margin_bottom = 358.0
 text = "No Gravity"
 
 [node name="Margin2" type="MarginContainer" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 251.0
+margin_top = 362.0
 margin_right = 192.0
-margin_bottom = 258.981
+margin_bottom = 369.981
 rect_min_size = Vector2( 0, 7.981 )
 
 [node name="TagsLabel" type="Label" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 262.0
+margin_top = 373.0
 margin_right = 192.0
-margin_bottom = 282.0
+margin_bottom = 393.0
 text = "Tags"
 
 [node name="TagsTextEdit" type="TextEdit" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 286.0
+margin_top = 397.0
 margin_right = 192.0
-margin_bottom = 512.0
+margin_bottom = 559.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Credits" type="Label" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_top = 516.0
-margin_right = 192.0
-margin_bottom = 559.0
-text = "GN's Armor Stand
-Editor"
-align = 1
-
 [node name="Slots" type="Tabs" parent="CanvasLayer/RightTabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 25.0
@@ -690,47 +843,111 @@ text = "items that will be included into the armor stand, examples:
 minecraft:diamond_helmet"
 fit_content_height = true
 
-[node name="HelmetItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
 margin_top = 96.0
 margin_right = 192.0
-margin_bottom = 120.0
+margin_bottom = 260.0
+columns = 2
+
+[node name="HelmetItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_right = 140.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 placeholder_text = "Helmet"
 
-[node name="ChestplateItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
-margin_top = 124.0
+[node name="HelmetCount" type="SpinBox" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_left = 144.0
 margin_right = 192.0
-margin_bottom = 148.0
+margin_bottom = 24.0
+min_value = 1.0
+max_value = 64.0
+value = 1.0
+rounded = true
+
+[node name="ChestplateItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_top = 28.0
+margin_right = 140.0
+margin_bottom = 52.0
 size_flags_horizontal = 3
 placeholder_text = "Chestplate"
 
-[node name="LeggingsItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
-margin_top = 152.0
+[node name="ChestplateCount" type="SpinBox" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_left = 144.0
+margin_top = 28.0
 margin_right = 192.0
-margin_bottom = 176.0
+margin_bottom = 52.0
+min_value = 1.0
+max_value = 64.0
+value = 1.0
+rounded = true
+
+[node name="LeggingsItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_top = 56.0
+margin_right = 140.0
+margin_bottom = 80.0
 size_flags_horizontal = 3
 placeholder_text = "Leggings"
 
-[node name="BootsItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
-margin_top = 180.0
+[node name="LeggingsCount" type="SpinBox" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_left = 144.0
+margin_top = 56.0
 margin_right = 192.0
-margin_bottom = 204.0
+margin_bottom = 80.0
+min_value = 1.0
+max_value = 64.0
+value = 1.0
+rounded = true
+
+[node name="BootsItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_top = 84.0
+margin_right = 140.0
+margin_bottom = 108.0
 size_flags_horizontal = 3
 placeholder_text = "Boots"
 
-[node name="MainHandItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
-margin_top = 208.0
+[node name="BootsCount" type="SpinBox" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_left = 144.0
+margin_top = 84.0
 margin_right = 192.0
-margin_bottom = 232.0
+margin_bottom = 108.0
+min_value = 1.0
+max_value = 64.0
+value = 1.0
+rounded = true
+
+[node name="MainHandItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_top = 112.0
+margin_right = 140.0
+margin_bottom = 136.0
 size_flags_horizontal = 3
 placeholder_text = "Main Hand"
 
-[node name="OffHandItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
-margin_top = 236.0
+[node name="MainHandCount" type="SpinBox" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_left = 144.0
+margin_top = 112.0
 margin_right = 192.0
-margin_bottom = 260.0
+margin_bottom = 136.0
+min_value = 1.0
+max_value = 64.0
+value = 1.0
+rounded = true
+
+[node name="OffHandItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_top = 140.0
+margin_right = 140.0
+margin_bottom = 164.0
 size_flags_horizontal = 3
 placeholder_text = "Off Hand"
+
+[node name="OffHandCount" type="SpinBox" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
+margin_left = 144.0
+margin_top = 140.0
+margin_right = 192.0
+margin_bottom = 164.0
+min_value = 1.0
+max_value = 64.0
+value = 1.0
+rounded = true
 
 [node name="LightingToggleButton" type="Button" parent="CanvasLayer"]
 anchor_left = 1.0
@@ -770,16 +987,16 @@ value = 15.0
 allow_greater = true
 allow_lesser = true
 
-[node name="Label" type="Label" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 14.0
-
 [connection signal="mouse_entered" from="CanvasLayer/ViewportArea" to="." method="_on_ViewportArea_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/ViewportArea" to="." method="_on_ViewportArea_mouse_exited"]
-[connection signal="value_changed" from="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer/Text/X/xval" to="CanvasLayer/PropertiesTabs/Properties" method="_on_xval_value_changed"]
+[connection signal="tab_changed" from="CanvasLayer/Control/BottomTabs" to="CanvasLayer/Control/BottomTabs" method="_on_BottomTabs_tab_changed"]
+[connection signal="pressed" from="CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer/VBoxContainer/ClipboardButton" to="CanvasLayer/Control/BottomTabs" method="_on_ClipboardButton_pressed"]
+[connection signal="value_changed" from="CanvasLayer/PropertiesTabs/Properties/VBoxContainer/X/xval" to="CanvasLayer/PropertiesTabs/Properties" method="_on_xval_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/PropertiesTabs/Properties/VBoxContainer/Y/yval" to="CanvasLayer/PropertiesTabs/Properties" method="_on_yval_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/PropertiesTabs/Properties/VBoxContainer/Z/zval" to="CanvasLayer/PropertiesTabs/Properties" method="_on_zval_value_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/CustomName" to="." method="_on_CustomName_text_changed"]
+[connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/RawJsonNameCheckBox" to="." method="_on_RawJsonNameCheckBox_toggled"]
+[connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/ShowCustomNameCheckBox" to="." method="_on_ShowCustomNameCheckBox_toggled"]
 [connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/InvisibleOption" to="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags" method="_on_InvisibleOption_toggled"]
 [connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/MarkerOption" to="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags" method="_on_MarkerOption_toggled"]
 [connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/SmallOption" to="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags" method="_on_SmallOption_toggled"]
@@ -794,12 +1011,18 @@ margin_bottom = 14.0
 [connection signal="values_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots/DisableSlotBoots" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" method="_on_DisableSlotBoots_values_changed"]
 [connection signal="values_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots/DisableSlotMainHand" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" method="_on_DisableSlotMainHand_values_changed"]
 [connection signal="values_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots/DisableSlotOffHand" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" method="_on_DisableSlotOffHand_values_changed"]
-[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/HelmetItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_HelmetItem_text_changed"]
-[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/ChestplateItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_ChestplateItem_text_changed"]
-[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/LeggingsItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_LeggingsItem_text_changed"]
-[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/BootsItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_BootsItem_text_changed"]
-[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/MainHandItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_MainHandItem_text_changed"]
-[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/OffHandItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_OffHandItem_text_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/HelmetItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_HelmetItem_text_changed"]
+[connection signal="value_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/HelmetCount" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_HelmetCount_value_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/ChestplateItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_ChestplateItem_text_changed"]
+[connection signal="value_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/ChestplateCount" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_ChestplateCount_value_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/LeggingsItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_LeggingsItem_text_changed"]
+[connection signal="value_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/LeggingsCount" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_LeggingsCount_value_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/BootsItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_BootsItem_text_changed"]
+[connection signal="value_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/BootsCount" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_BootsCount_value_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/MainHandItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_MainHandItem_text_changed"]
+[connection signal="value_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/MainHandCount" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_MainHandCount_value_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/OffHandItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_OffHandItem_text_changed"]
+[connection signal="value_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/OffHandCount" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_OffHandCount_value_changed"]
 [connection signal="toggled" from="CanvasLayer/LightingToggleButton" to="." method="_on_LightingToggleButton_toggled"]
 [connection signal="toggled" from="CanvasLayer/SnapToggleButton" to="." method="_on_SnapToggleButton_toggled"]
 [connection signal="value_changed" from="CanvasLayer/SnapToggleButton/SnapStep" to="." method="_on_SnapStep_value_changed"]

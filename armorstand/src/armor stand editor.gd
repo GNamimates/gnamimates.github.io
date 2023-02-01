@@ -11,6 +11,7 @@ func _ready():
 	ArmorStand.connect("no_base_plate_changed",self,"_baseplate_changed")
 	ArmorStand.connect("small_changed",self,"_small_changed")
 	ArmorStand.connect("show_arms_changed",self,"_arms_changed")
+	ArmorStand.connect("property_changed",self,"_armorstand_update")
 
 func _input(event):
 	if event is InputEventMouseMotion:# Hightlighter
@@ -78,3 +79,20 @@ func _arms_changed():
 	$armor_stand/baseplate/Mannequin/right_arm_bone/CollisionShape.disabled = !ArmorStand.show_arms
 	$armor_stand/baseplate/Mannequin/left_arm_bone.visible = ArmorStand.show_arms
 	$armor_stand/baseplate/Mannequin/left_arm_bone/CollisionShape.disabled = !ArmorStand.show_arms
+
+func _armorstand_update():
+	var cmd = ArmorStand.getNBTString()
+	$CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer/VBoxContainer/toolong.visible = (cmd.length() > 256)
+	$CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer/Command.text = cmd
+
+
+func _on_CustomName_text_changed(new):
+	ArmorStand.custom_name = new
+
+
+func _on_RawJsonNameCheckBox_toggled(toggle):
+	ArmorStand.raw_name = toggle
+
+
+func _on_ShowCustomNameCheckBox_toggled(toggle):
+	ArmorStand.custom_name_visible = toggle

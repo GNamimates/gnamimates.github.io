@@ -30,3 +30,6 @@ func rotation(rotation):
 	t = t.rotated(Vector3(0, -1, 0), rotation.y)
 	t = t.rotated(Vector3(0, 0, -1), rotation.z)
 	return t
+
+func vec3toNBTfloat3(vec):
+	return [floor(vec.x*10)/10,floor(vec.y*10)/10,floor(vec.z*10)/10]

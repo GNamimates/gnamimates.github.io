@@ -12,6 +12,9 @@ func _selected_changed(selected):
 		else:
 			$VBoxContainer/X/xval.visible = true
 			$VBoxContainer/Z/zval.visible = true
+		$VBoxContainer/X/xval.value = rad2deg(Global.last_selected.true_rotation.x)
+		$VBoxContainer/Y/yval.value = rad2deg(Global.last_selected.true_rotation.y)
+		$VBoxContainer/Z/zval.value = rad2deg(Global.last_selected.true_rotation.z)
 		get_parent().visible = true
 	else:
 		get_parent().visible = false
