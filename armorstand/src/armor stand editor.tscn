@@ -404,12 +404,12 @@ tab_align = 2
 script = ExtResource( 15 )
 
 [node name="Hide" type="Tabs" parent="CanvasLayer/Control/BottomTabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 25.0
 
 [node name="Home" type="Tabs" parent="CanvasLayer/Control/BottomTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 25.0
@@ -419,7 +419,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer"]
-margin_right = 818.0
+margin_right = 832.0
 margin_bottom = 192.0
 size_flags_horizontal = 3
 
@@ -619,7 +619,6 @@ margin_top = 16.0
 tab_align = 0
 
 [node name="Entity Data" type="Tabs" parent="CanvasLayer/RightTabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 25.0
@@ -752,6 +751,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Slots" type="Tabs" parent="CanvasLayer/RightTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 25.0
