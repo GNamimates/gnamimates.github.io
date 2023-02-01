@@ -1,0 +1,805 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://models/armor_stand.material" type="Material" id=1]
+[ext_resource path="res://OrbitCamera.gd" type="Script" id=2]
+[ext_resource path="res://armor stand editor.gd" type="Script" id=3]
+[ext_resource path="res://icons/sun.png" type="Texture" id=4]
+[ext_resource path="res://models/arrow.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://elements/RotationGizmo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://armor_stand_segment.gd" type="Script" id=7]
+[ext_resource path="res://font/VarelaRound-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://elements/DisableSlotSelection.tscn" type="PackedScene" id=9]
+[ext_resource path="res://icons/snap.png" type="Texture" id=10]
+[ext_resource path="res://rotationPropertyPanel.gd" type="Script" id=11]
+[ext_resource path="res://ArmorStandTags.gd" type="Script" id=12]
+[ext_resource path="res://DisabledSlots.gd" type="Script" id=13]
+[ext_resource path="res://EquipedItems.gd" type="Script" id=14]
+
+[sub_resource type="SpatialMaterial" id=15]
+flags_transparent = true
+flags_unshaded = true
+flags_vertex_lighting = true
+albedo_color = Color( 1, 1, 1, 0.145098 )
+
+[sub_resource type="ArrayMesh" id=13]
+resource_name = "blockbench_export_mesh10"
+surfaces/0 = {
+"aabb": AABB( -0.375, 0, -0.375, 0.75001, 0.06251, 0.75001 ),
+"array_data": PoolByteArray( 0, 0, 192, 62, 0, 0, 128, 61, 0, 0, 192, 62, 127, 0, 127, 129, 0, 12, 252, 51, 0, 0, 192, 62, 0, 0, 128, 61, 0, 0, 192, 190, 127, 0, 127, 129, 254, 49, 252, 51, 0, 0, 192, 62, 0, 0, 0, 0, 0, 0, 192, 62, 127, 0, 127, 129, 0, 12, 4, 51, 0, 0, 192, 62, 0, 0, 0, 0, 0, 0, 192, 190, 127, 0, 127, 129, 254, 49, 4, 51, 0, 0, 192, 190, 0, 0, 128, 61, 0, 0, 192, 190, 129, 0, 0, 193, 1, 54, 252, 51, 0, 0, 192, 190, 0, 0, 128, 61, 0, 0, 192, 62, 129, 0, 0, 193, 127, 56, 252, 51, 0, 0, 192, 190, 0, 0, 0, 0, 0, 0, 192, 190, 129, 0, 0, 193, 1, 54, 4, 51, 0, 0, 192, 190, 0, 0, 0, 0, 0, 0, 192, 62, 129, 0, 0, 193, 127, 56, 4, 51, 0, 0, 192, 190, 0, 0, 128, 61, 0, 0, 192, 190, 0, 127, 129, 193, 255, 53, 2, 52, 0, 0, 192, 62, 0, 0, 128, 61, 0, 0, 192, 190, 0, 127, 129, 193, 2, 50, 2, 52, 0, 0, 192, 190, 0, 0, 128, 61, 0, 0, 192, 62, 0, 127, 129, 193, 255, 53, 255, 56, 0, 0, 192, 62, 0, 0, 128, 61, 0, 0, 192, 62, 0, 127, 129, 193, 2, 50, 255, 56, 0, 0, 192, 190, 0, 0, 0, 0, 0, 0, 192, 62, 0, 129, 129, 63, 127, 56, 255, 56, 0, 0, 192, 62, 0, 0, 0, 0, 0, 0, 192, 62, 0, 129, 129, 63, 1, 54, 255, 56, 0, 0, 192, 190, 0, 0, 0, 0, 0, 0, 192, 190, 0, 129, 129, 63, 127, 56, 2, 52, 0, 0, 192, 62, 0, 0, 0, 0, 0, 0, 192, 190, 0, 129, 129, 63, 1, 54, 2, 52, 0, 0, 192, 190, 0, 0, 128, 61, 0, 0, 192, 62, 0, 0, 127, 193, 128, 56, 252, 51, 0, 0, 192, 62, 0, 0, 128, 61, 0, 0, 192, 62, 0, 0, 127, 193, 255, 57, 252, 51, 0, 0, 192, 190, 0, 0, 0, 0, 0, 0, 192, 62, 0, 0, 127, 193, 128, 56, 4, 51, 0, 0, 192, 62, 0, 0, 0, 0, 0, 0, 192, 62, 0, 0, 127, 193, 255, 57, 4, 51, 0, 0, 192, 62, 0, 0, 128, 61, 0, 0, 192, 190, 127, 127, 129, 193, 2, 50, 252, 51, 0, 0, 192, 190, 0, 0, 128, 61, 0, 0, 192, 190, 127, 127, 129, 193, 255, 53, 252, 51, 0, 0, 192, 62, 0, 0, 0, 0, 0, 0, 192, 190, 127, 127, 129, 193, 2, 50, 4, 51, 0, 0, 192, 190, 0, 0, 0, 0, 0, 0, 192, 190, 127, 127, 129, 193, 255, 53, 4, 51 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="BoxShape" id=21]
+extents = Vector3( 0.375984, 0.0322118, 0.376166 )
+
+[sub_resource type="ArrayMesh" id=4]
+resource_name = "blockbench_export_mesh"
+surfaces/0 = {
+"aabb": AABB( -0.0625, 1.4375, -0.0625, 0.12501, 0.37501, 0.12501 ),
+"array_data": PoolByteArray( 0, 0, 128, 61, 0, 0, 232, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 12, 63, 59, 0, 0, 128, 61, 0, 0, 232, 63, 0, 0, 128, 189, 127, 0, 127, 129, 240, 39, 63, 59, 0, 0, 128, 61, 0, 0, 184, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 12, 193, 57, 0, 0, 128, 61, 0, 0, 184, 63, 0, 0, 128, 189, 127, 0, 127, 129, 240, 39, 193, 57, 0, 0, 128, 189, 0, 0, 232, 63, 0, 0, 128, 189, 129, 0, 0, 193, 4, 44, 63, 59, 0, 0, 128, 189, 0, 0, 232, 63, 0, 0, 128, 61, 129, 0, 0, 193, 252, 45, 63, 59, 0, 0, 128, 189, 0, 0, 184, 63, 0, 0, 128, 189, 129, 0, 0, 193, 4, 44, 193, 57, 0, 0, 128, 189, 0, 0, 184, 63, 0, 0, 128, 61, 129, 0, 0, 193, 252, 45, 193, 57, 0, 0, 128, 189, 0, 0, 232, 63, 0, 0, 128, 189, 0, 127, 129, 193, 248, 43, 65, 59, 0, 0, 128, 61, 0, 0, 232, 63, 0, 0, 128, 189, 0, 127, 129, 193, 8, 40, 65, 59, 0, 0, 128, 189, 0, 0, 232, 63, 0, 0, 128, 61, 0, 127, 129, 193, 248, 43, 191, 59, 0, 0, 128, 61, 0, 0, 232, 63, 0, 0, 128, 61, 0, 127, 129, 193, 8, 40, 191, 59, 0, 0, 128, 189, 0, 0, 184, 63, 0, 0, 128, 61, 0, 129, 129, 63, 252, 45, 191, 59, 0, 0, 128, 61, 0, 0, 184, 63, 0, 0, 128, 61, 0, 129, 129, 63, 4, 44, 191, 59, 0, 0, 128, 189, 0, 0, 184, 63, 0, 0, 128, 189, 0, 129, 129, 63, 252, 45, 65, 59, 0, 0, 128, 61, 0, 0, 184, 63, 0, 0, 128, 189, 0, 129, 129, 63, 4, 44, 65, 59, 0, 0, 128, 189, 0, 0, 232, 63, 0, 0, 128, 61, 0, 0, 127, 193, 4, 46, 63, 59, 0, 0, 128, 61, 0, 0, 232, 63, 0, 0, 128, 61, 0, 0, 127, 193, 252, 47, 63, 59, 0, 0, 128, 189, 0, 0, 184, 63, 0, 0, 128, 61, 0, 0, 127, 193, 4, 46, 193, 57, 0, 0, 128, 61, 0, 0, 184, 63, 0, 0, 128, 61, 0, 0, 127, 193, 252, 47, 193, 57, 0, 0, 128, 61, 0, 0, 232, 63, 0, 0, 128, 189, 127, 127, 129, 193, 8, 40, 63, 59, 0, 0, 128, 189, 0, 0, 232, 63, 0, 0, 128, 189, 127, 127, 129, 193, 248, 43, 63, 59, 0, 0, 128, 61, 0, 0, 184, 63, 0, 0, 128, 189, 127, 127, 129, 193, 8, 40, 193, 57, 0, 0, 128, 189, 0, 0, 184, 63, 0, 0, 128, 189, 127, 127, 129, 193, 248, 43, 193, 57 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 0.062, 0.213, 0.062 )
+
+[sub_resource type="ArrayMesh" id=5]
+resource_name = "blockbench_export_mesh2"
+surfaces/0 = {
+"aabb": AABB( 0.3125, 0.6875, -0.0625, 0.12501, 0.75001, 0.12501 ),
+"array_data": PoolByteArray( 0, 0, 224, 62, 0, 0, 184, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 57, 255, 56, 0, 0, 224, 62, 0, 0, 184, 63, 0, 0, 128, 189, 127, 0, 127, 129, 63, 57, 255, 56, 0, 0, 224, 62, 0, 0, 48, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 57, 2, 52, 0, 0, 224, 62, 0, 0, 48, 63, 0, 0, 128, 189, 127, 0, 127, 129, 63, 57, 2, 52, 0, 0, 160, 62, 0, 0, 184, 63, 0, 0, 128, 189, 129, 0, 0, 193, 128, 57, 255, 56, 0, 0, 160, 62, 0, 0, 184, 63, 0, 0, 128, 61, 129, 0, 0, 193, 191, 57, 255, 56, 0, 0, 160, 62, 0, 0, 48, 63, 0, 0, 128, 189, 129, 0, 0, 193, 128, 57, 2, 52, 0, 0, 160, 62, 0, 0, 48, 63, 0, 0, 128, 61, 129, 0, 0, 193, 191, 57, 2, 52, 0, 0, 160, 62, 0, 0, 184, 63, 0, 0, 128, 189, 0, 127, 129, 193, 127, 57, 1, 57, 0, 0, 224, 62, 0, 0, 184, 63, 0, 0, 128, 189, 0, 127, 129, 193, 64, 57, 1, 57, 0, 0, 160, 62, 0, 0, 184, 63, 0, 0, 128, 61, 0, 127, 129, 193, 127, 57, 127, 57, 0, 0, 224, 62, 0, 0, 184, 63, 0, 0, 128, 61, 0, 127, 129, 193, 64, 57, 127, 57, 0, 0, 160, 62, 0, 0, 48, 63, 0, 0, 128, 61, 0, 129, 129, 63, 191, 57, 127, 57, 0, 0, 224, 62, 0, 0, 48, 63, 0, 0, 128, 61, 0, 129, 129, 63, 128, 57, 127, 57, 0, 0, 160, 62, 0, 0, 48, 63, 0, 0, 128, 189, 0, 129, 129, 63, 191, 57, 1, 57, 0, 0, 224, 62, 0, 0, 48, 63, 0, 0, 128, 189, 0, 129, 129, 63, 128, 57, 1, 57, 0, 0, 160, 62, 0, 0, 184, 63, 0, 0, 128, 61, 0, 0, 127, 193, 192, 57, 255, 56, 0, 0, 224, 62, 0, 0, 184, 63, 0, 0, 128, 61, 0, 0, 127, 193, 255, 57, 255, 56, 0, 0, 160, 62, 0, 0, 48, 63, 0, 0, 128, 61, 0, 0, 127, 193, 192, 57, 2, 52, 0, 0, 224, 62, 0, 0, 48, 63, 0, 0, 128, 61, 0, 0, 127, 193, 255, 57, 2, 52, 0, 0, 224, 62, 0, 0, 184, 63, 0, 0, 128, 189, 127, 127, 129, 193, 64, 57, 255, 56, 0, 0, 160, 62, 0, 0, 184, 63, 0, 0, 128, 189, 127, 127, 129, 193, 127, 57, 255, 56, 0, 0, 224, 62, 0, 0, 48, 63, 0, 0, 128, 189, 127, 127, 129, 193, 64, 57, 2, 52, 0, 0, 160, 62, 0, 0, 48, 63, 0, 0, 128, 189, 127, 127, 129, 193, 127, 57, 2, 52 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="BoxShape" id=16]
+extents = Vector3( 0.0646087, 0.374932, 0.0731638 )
+
+[sub_resource type="ArrayMesh" id=6]
+resource_name = "blockbench_export_mesh3"
+surfaces/0 = {
+"aabb": AABB( -0.4375, 0.6875, -0.0625, 0.12501, 0.75001, 0.12501 ),
+"array_data": PoolByteArray( 0, 0, 160, 190, 0, 0, 184, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 57, 255, 56, 0, 0, 160, 190, 0, 0, 184, 63, 0, 0, 128, 189, 127, 0, 127, 129, 63, 57, 255, 56, 0, 0, 160, 190, 0, 0, 48, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 57, 2, 52, 0, 0, 160, 190, 0, 0, 48, 63, 0, 0, 128, 189, 127, 0, 127, 129, 63, 57, 2, 52, 0, 0, 224, 190, 0, 0, 184, 63, 0, 0, 128, 189, 129, 0, 0, 193, 128, 57, 255, 56, 0, 0, 224, 190, 0, 0, 184, 63, 0, 0, 128, 61, 129, 0, 0, 193, 191, 57, 255, 56, 0, 0, 224, 190, 0, 0, 48, 63, 0, 0, 128, 189, 129, 0, 0, 193, 128, 57, 2, 52, 0, 0, 224, 190, 0, 0, 48, 63, 0, 0, 128, 61, 129, 0, 0, 193, 191, 57, 2, 52, 0, 0, 224, 190, 0, 0, 184, 63, 0, 0, 128, 189, 0, 127, 129, 193, 127, 57, 1, 57, 0, 0, 160, 190, 0, 0, 184, 63, 0, 0, 128, 189, 0, 127, 129, 193, 64, 57, 1, 57, 0, 0, 224, 190, 0, 0, 184, 63, 0, 0, 128, 61, 0, 127, 129, 193, 127, 57, 127, 57, 0, 0, 160, 190, 0, 0, 184, 63, 0, 0, 128, 61, 0, 127, 129, 193, 64, 57, 127, 57, 0, 0, 224, 190, 0, 0, 48, 63, 0, 0, 128, 61, 0, 129, 129, 63, 191, 57, 127, 57, 0, 0, 160, 190, 0, 0, 48, 63, 0, 0, 128, 61, 0, 129, 129, 63, 128, 57, 127, 57, 0, 0, 224, 190, 0, 0, 48, 63, 0, 0, 128, 189, 0, 129, 129, 63, 191, 57, 1, 57, 0, 0, 160, 190, 0, 0, 48, 63, 0, 0, 128, 189, 0, 129, 129, 63, 128, 57, 1, 57, 0, 0, 224, 190, 0, 0, 184, 63, 0, 0, 128, 61, 0, 0, 127, 193, 192, 57, 255, 56, 0, 0, 160, 190, 0, 0, 184, 63, 0, 0, 128, 61, 0, 0, 127, 193, 255, 57, 255, 56, 0, 0, 224, 190, 0, 0, 48, 63, 0, 0, 128, 61, 0, 0, 127, 193, 192, 57, 2, 52, 0, 0, 160, 190, 0, 0, 48, 63, 0, 0, 128, 61, 0, 0, 127, 193, 255, 57, 2, 52, 0, 0, 160, 190, 0, 0, 184, 63, 0, 0, 128, 189, 127, 127, 129, 193, 64, 57, 255, 56, 0, 0, 224, 190, 0, 0, 184, 63, 0, 0, 128, 189, 127, 127, 129, 193, 127, 57, 255, 56, 0, 0, 160, 190, 0, 0, 48, 63, 0, 0, 128, 189, 127, 127, 129, 193, 64, 57, 2, 52, 0, 0, 224, 190, 0, 0, 48, 63, 0, 0, 128, 189, 127, 127, 129, 193, 127, 57, 2, 52 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="ArrayMesh" id=7]
+resource_name = "blockbench_export_mesh4"
+surfaces/0 = {
+"aabb": AABB( 0.0625, 0.8125, -0.0625, 0.12501, 0.43751, 0.12501 ),
+"array_data": PoolByteArray( 0, 0, 64, 62, 0, 0, 160, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 12, 63, 59, 0, 0, 64, 62, 0, 0, 160, 63, 0, 0, 128, 189, 127, 0, 127, 129, 240, 39, 63, 59, 0, 0, 64, 62, 0, 0, 80, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 12, 129, 57, 0, 0, 64, 62, 0, 0, 80, 63, 0, 0, 128, 189, 127, 0, 127, 129, 240, 39, 129, 57, 0, 0, 128, 61, 0, 0, 160, 63, 0, 0, 128, 189, 129, 0, 0, 193, 4, 44, 63, 59, 0, 0, 128, 61, 0, 0, 160, 63, 0, 0, 128, 61, 129, 0, 0, 193, 252, 45, 63, 59, 0, 0, 128, 61, 0, 0, 80, 63, 0, 0, 128, 189, 129, 0, 0, 193, 4, 44, 129, 57, 0, 0, 128, 61, 0, 0, 80, 63, 0, 0, 128, 61, 129, 0, 0, 193, 252, 45, 129, 57, 0, 0, 128, 61, 0, 0, 160, 63, 0, 0, 128, 189, 0, 127, 129, 193, 248, 43, 65, 59, 0, 0, 64, 62, 0, 0, 160, 63, 0, 0, 128, 189, 0, 127, 129, 193, 8, 40, 65, 59, 0, 0, 128, 61, 0, 0, 160, 63, 0, 0, 128, 61, 0, 127, 129, 193, 248, 43, 191, 59, 0, 0, 64, 62, 0, 0, 160, 63, 0, 0, 128, 61, 0, 127, 129, 193, 8, 40, 191, 59, 0, 0, 128, 61, 0, 0, 80, 63, 0, 0, 128, 61, 0, 129, 129, 63, 252, 45, 191, 59, 0, 0, 64, 62, 0, 0, 80, 63, 0, 0, 128, 61, 0, 129, 129, 63, 4, 44, 191, 59, 0, 0, 128, 61, 0, 0, 80, 63, 0, 0, 128, 189, 0, 129, 129, 63, 252, 45, 65, 59, 0, 0, 64, 62, 0, 0, 80, 63, 0, 0, 128, 189, 0, 129, 129, 63, 4, 44, 65, 59, 0, 0, 128, 61, 0, 0, 160, 63, 0, 0, 128, 61, 0, 0, 127, 193, 4, 46, 63, 59, 0, 0, 64, 62, 0, 0, 160, 63, 0, 0, 128, 61, 0, 0, 127, 193, 252, 47, 63, 59, 0, 0, 128, 61, 0, 0, 80, 63, 0, 0, 128, 61, 0, 0, 127, 193, 4, 46, 129, 57, 0, 0, 64, 62, 0, 0, 80, 63, 0, 0, 128, 61, 0, 0, 127, 193, 252, 47, 129, 57, 0, 0, 64, 62, 0, 0, 160, 63, 0, 0, 128, 189, 127, 127, 129, 193, 8, 40, 63, 59, 0, 0, 128, 61, 0, 0, 160, 63, 0, 0, 128, 189, 127, 127, 129, 193, 248, 43, 63, 59, 0, 0, 64, 62, 0, 0, 80, 63, 0, 0, 128, 189, 127, 127, 129, 193, 8, 40, 129, 57, 0, 0, 128, 61, 0, 0, 80, 63, 0, 0, 128, 189, 127, 127, 129, 193, 248, 43, 129, 57 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="ArrayMesh" id=8]
+resource_name = "blockbench_export_mesh5"
+surfaces/0 = {
+"aabb": AABB( -0.1875, 0.8125, -0.0625, 0.12501, 0.43751, 0.12501 ),
+"array_data": PoolByteArray( 0, 0, 128, 189, 0, 0, 160, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 12, 63, 59, 0, 0, 128, 189, 0, 0, 160, 63, 0, 0, 128, 189, 127, 0, 127, 129, 240, 39, 63, 59, 0, 0, 128, 189, 0, 0, 80, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 12, 129, 57, 0, 0, 128, 189, 0, 0, 80, 63, 0, 0, 128, 189, 127, 0, 127, 129, 240, 39, 129, 57, 0, 0, 64, 190, 0, 0, 160, 63, 0, 0, 128, 189, 129, 0, 0, 193, 4, 44, 63, 59, 0, 0, 64, 190, 0, 0, 160, 63, 0, 0, 128, 61, 129, 0, 0, 193, 252, 45, 63, 59, 0, 0, 64, 190, 0, 0, 80, 63, 0, 0, 128, 189, 129, 0, 0, 193, 4, 44, 129, 57, 0, 0, 64, 190, 0, 0, 80, 63, 0, 0, 128, 61, 129, 0, 0, 193, 252, 45, 129, 57, 0, 0, 64, 190, 0, 0, 160, 63, 0, 0, 128, 189, 0, 127, 129, 193, 248, 43, 65, 59, 0, 0, 128, 189, 0, 0, 160, 63, 0, 0, 128, 189, 0, 127, 129, 193, 8, 40, 65, 59, 0, 0, 64, 190, 0, 0, 160, 63, 0, 0, 128, 61, 0, 127, 129, 193, 248, 43, 191, 59, 0, 0, 128, 189, 0, 0, 160, 63, 0, 0, 128, 61, 0, 127, 129, 193, 8, 40, 191, 59, 0, 0, 64, 190, 0, 0, 80, 63, 0, 0, 128, 61, 0, 129, 129, 63, 252, 45, 191, 59, 0, 0, 128, 189, 0, 0, 80, 63, 0, 0, 128, 61, 0, 129, 129, 63, 4, 44, 191, 59, 0, 0, 64, 190, 0, 0, 80, 63, 0, 0, 128, 189, 0, 129, 129, 63, 252, 45, 65, 59, 0, 0, 128, 189, 0, 0, 80, 63, 0, 0, 128, 189, 0, 129, 129, 63, 4, 44, 65, 59, 0, 0, 64, 190, 0, 0, 160, 63, 0, 0, 128, 61, 0, 0, 127, 193, 4, 46, 63, 59, 0, 0, 128, 189, 0, 0, 160, 63, 0, 0, 128, 61, 0, 0, 127, 193, 252, 47, 63, 59, 0, 0, 64, 190, 0, 0, 80, 63, 0, 0, 128, 61, 0, 0, 127, 193, 4, 46, 129, 57, 0, 0, 128, 189, 0, 0, 80, 63, 0, 0, 128, 61, 0, 0, 127, 193, 252, 47, 129, 57, 0, 0, 128, 189, 0, 0, 160, 63, 0, 0, 128, 189, 127, 127, 129, 193, 8, 40, 63, 59, 0, 0, 64, 190, 0, 0, 160, 63, 0, 0, 128, 189, 127, 127, 129, 193, 248, 43, 63, 59, 0, 0, 128, 189, 0, 0, 80, 63, 0, 0, 128, 189, 127, 127, 129, 193, 8, 40, 129, 57, 0, 0, 64, 190, 0, 0, 80, 63, 0, 0, 128, 189, 127, 127, 129, 193, 248, 43, 129, 57 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="ArrayMesh" id=9]
+resource_name = "blockbench_export_mesh6"
+surfaces/0 = {
+"aabb": AABB( -0.375, 1.25, -0.09375, 0.75001, 0.18751, 0.18751 ),
+"array_data": PoolByteArray( 0, 0, 192, 62, 0, 0, 184, 63, 0, 0, 192, 61, 127, 0, 127, 129, 130, 48, 255, 57, 0, 0, 192, 62, 0, 0, 184, 63, 0, 0, 192, 189, 127, 0, 127, 129, 254, 49, 255, 57, 0, 0, 192, 62, 0, 0, 160, 63, 0, 0, 192, 61, 127, 0, 127, 129, 130, 48, 65, 57, 0, 0, 192, 62, 0, 0, 160, 63, 0, 0, 192, 189, 127, 0, 127, 129, 254, 49, 65, 57, 0, 0, 192, 190, 0, 0, 184, 63, 0, 0, 192, 189, 129, 0, 0, 193, 1, 54, 255, 57, 0, 0, 192, 190, 0, 0, 184, 63, 0, 0, 192, 61, 129, 0, 0, 193, 191, 54, 255, 57, 0, 0, 192, 190, 0, 0, 160, 63, 0, 0, 192, 189, 129, 0, 0, 193, 1, 54, 65, 57, 0, 0, 192, 190, 0, 0, 160, 63, 0, 0, 192, 61, 129, 0, 0, 193, 191, 54, 65, 57, 0, 0, 192, 190, 0, 0, 184, 63, 0, 0, 192, 189, 0, 127, 129, 193, 255, 53, 1, 58, 0, 0, 192, 62, 0, 0, 184, 63, 0, 0, 192, 189, 0, 127, 129, 193, 2, 50, 1, 58, 0, 0, 192, 190, 0, 0, 184, 63, 0, 0, 192, 61, 0, 127, 129, 193, 255, 53, 191, 58, 0, 0, 192, 62, 0, 0, 184, 63, 0, 0, 192, 61, 0, 127, 129, 193, 2, 50, 191, 58, 0, 0, 192, 190, 0, 0, 160, 63, 0, 0, 192, 61, 0, 129, 129, 63, 127, 56, 191, 58, 0, 0, 192, 62, 0, 0, 160, 63, 0, 0, 192, 61, 0, 129, 129, 63, 1, 54, 191, 58, 0, 0, 192, 190, 0, 0, 160, 63, 0, 0, 192, 189, 0, 129, 129, 63, 127, 56, 1, 58, 0, 0, 192, 62, 0, 0, 160, 63, 0, 0, 192, 189, 0, 129, 129, 63, 1, 54, 1, 58, 0, 0, 192, 190, 0, 0, 184, 63, 0, 0, 192, 61, 0, 0, 127, 193, 193, 54, 255, 57, 0, 0, 192, 62, 0, 0, 184, 63, 0, 0, 192, 61, 0, 0, 127, 193, 223, 56, 255, 57, 0, 0, 192, 190, 0, 0, 160, 63, 0, 0, 192, 61, 0, 0, 127, 193, 193, 54, 65, 57, 0, 0, 192, 62, 0, 0, 160, 63, 0, 0, 192, 61, 0, 0, 127, 193, 223, 56, 65, 57, 0, 0, 192, 62, 0, 0, 184, 63, 0, 0, 192, 189, 127, 127, 129, 193, 2, 50, 255, 57, 0, 0, 192, 190, 0, 0, 184, 63, 0, 0, 192, 189, 127, 127, 129, 193, 255, 53, 255, 57, 0, 0, 192, 62, 0, 0, 160, 63, 0, 0, 192, 189, 127, 127, 129, 193, 2, 50, 65, 57, 0, 0, 192, 190, 0, 0, 160, 63, 0, 0, 192, 189, 127, 127, 129, 193, 255, 53, 65, 57 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="ArrayMesh" id=10]
+resource_name = "blockbench_export_mesh7"
+surfaces/0 = {
+"aabb": AABB( -0.25, 0.6875, -0.0625, 0.50001, 0.12501, 0.12501 ),
+"array_data": PoolByteArray( 0, 0, 128, 62, 0, 0, 80, 63, 0, 0, 128, 61, 127, 0, 127, 129, 2, 51, 127, 59, 0, 0, 128, 62, 0, 0, 80, 63, 0, 0, 128, 189, 127, 0, 127, 129, 254, 51, 127, 59, 0, 0, 128, 62, 0, 0, 48, 63, 0, 0, 128, 61, 127, 0, 127, 129, 2, 51, 1, 59, 0, 0, 128, 62, 0, 0, 48, 63, 0, 0, 128, 189, 127, 0, 127, 129, 254, 51, 1, 59, 0, 0, 128, 190, 0, 0, 80, 63, 0, 0, 128, 189, 129, 0, 0, 193, 1, 54, 127, 59, 0, 0, 128, 190, 0, 0, 80, 63, 0, 0, 128, 61, 129, 0, 0, 193, 127, 54, 127, 59, 0, 0, 128, 190, 0, 0, 48, 63, 0, 0, 128, 189, 129, 0, 0, 193, 1, 54, 1, 59, 0, 0, 128, 190, 0, 0, 48, 63, 0, 0, 128, 61, 129, 0, 0, 193, 127, 54, 1, 59, 0, 0, 128, 190, 0, 0, 80, 63, 0, 0, 128, 189, 0, 127, 129, 193, 255, 53, 129, 59, 0, 0, 128, 62, 0, 0, 80, 63, 0, 0, 128, 189, 0, 127, 129, 193, 1, 52, 129, 59, 0, 0, 128, 190, 0, 0, 80, 63, 0, 0, 128, 61, 0, 127, 129, 193, 255, 53, 255, 59, 0, 0, 128, 62, 0, 0, 80, 63, 0, 0, 128, 61, 0, 127, 129, 193, 1, 52, 255, 59, 0, 0, 128, 190, 0, 0, 48, 63, 0, 0, 128, 61, 0, 129, 129, 63, 255, 55, 255, 59, 0, 0, 128, 62, 0, 0, 48, 63, 0, 0, 128, 61, 0, 129, 129, 63, 1, 54, 255, 59, 0, 0, 128, 190, 0, 0, 48, 63, 0, 0, 128, 189, 0, 129, 129, 63, 255, 55, 129, 59, 0, 0, 128, 62, 0, 0, 48, 63, 0, 0, 128, 189, 0, 129, 129, 63, 1, 54, 129, 59, 0, 0, 128, 190, 0, 0, 80, 63, 0, 0, 128, 61, 0, 0, 127, 193, 129, 54, 127, 59, 0, 0, 128, 62, 0, 0, 80, 63, 0, 0, 128, 61, 0, 0, 127, 193, 63, 56, 127, 59, 0, 0, 128, 190, 0, 0, 48, 63, 0, 0, 128, 61, 0, 0, 127, 193, 129, 54, 1, 59, 0, 0, 128, 62, 0, 0, 48, 63, 0, 0, 128, 61, 0, 0, 127, 193, 63, 56, 1, 59, 0, 0, 128, 62, 0, 0, 80, 63, 0, 0, 128, 189, 127, 127, 129, 193, 1, 52, 127, 59, 0, 0, 128, 190, 0, 0, 80, 63, 0, 0, 128, 189, 127, 127, 129, 193, 255, 53, 127, 59, 0, 0, 128, 62, 0, 0, 48, 63, 0, 0, 128, 189, 127, 127, 129, 193, 1, 52, 1, 59, 0, 0, 128, 190, 0, 0, 48, 63, 0, 0, 128, 189, 127, 127, 129, 193, 255, 53, 1, 59 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 0.310535, 0.10894, 0.0951797 )
+
+[sub_resource type="BoxShape" id=19]
+extents = Vector3( 0.24847, 0.0629135, 0.0731638 )
+
+[sub_resource type="BoxShape" id=18]
+extents = Vector3( 0.062515, 0.230782, 0.0731638 )
+
+[sub_resource type="ArrayMesh" id=11]
+resource_name = "blockbench_export_mesh8"
+surfaces/0 = {
+"aabb": AABB( 0.0625, 0.03125, -0.0625, 0.12501, 0.65626, 0.12501 ),
+"array_data": PoolByteArray( 0, 0, 64, 62, 0, 0, 48, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 12, 191, 56, 0, 0, 64, 62, 0, 0, 48, 63, 0, 0, 128, 189, 127, 0, 127, 129, 240, 39, 191, 56, 0, 0, 64, 62, 0, 0, 0, 61, 0, 0, 128, 61, 127, 0, 127, 129, 0, 12, 130, 52, 0, 0, 64, 62, 0, 0, 0, 61, 0, 0, 128, 189, 127, 0, 127, 129, 240, 39, 130, 52, 0, 0, 128, 61, 0, 0, 48, 63, 0, 0, 128, 189, 129, 0, 0, 193, 4, 44, 191, 56, 0, 0, 128, 61, 0, 0, 48, 63, 0, 0, 128, 61, 129, 0, 0, 193, 252, 45, 191, 56, 0, 0, 128, 61, 0, 0, 0, 61, 0, 0, 128, 189, 129, 0, 0, 193, 4, 44, 130, 52, 0, 0, 128, 61, 0, 0, 0, 61, 0, 0, 128, 61, 129, 0, 0, 193, 252, 45, 130, 52, 0, 0, 128, 61, 0, 0, 48, 63, 0, 0, 128, 189, 0, 127, 129, 193, 248, 43, 193, 56, 0, 0, 64, 62, 0, 0, 48, 63, 0, 0, 128, 189, 0, 127, 129, 193, 8, 40, 193, 56, 0, 0, 128, 61, 0, 0, 48, 63, 0, 0, 128, 61, 0, 127, 129, 193, 248, 43, 63, 57, 0, 0, 64, 62, 0, 0, 48, 63, 0, 0, 128, 61, 0, 127, 129, 193, 8, 40, 63, 57, 0, 0, 128, 61, 0, 0, 0, 61, 0, 0, 128, 61, 0, 129, 129, 63, 252, 45, 63, 57, 0, 0, 64, 62, 0, 0, 0, 61, 0, 0, 128, 61, 0, 129, 129, 63, 4, 44, 63, 57, 0, 0, 128, 61, 0, 0, 0, 61, 0, 0, 128, 189, 0, 129, 129, 63, 252, 45, 193, 56, 0, 0, 64, 62, 0, 0, 0, 61, 0, 0, 128, 189, 0, 129, 129, 63, 4, 44, 193, 56, 0, 0, 128, 61, 0, 0, 48, 63, 0, 0, 128, 61, 0, 0, 127, 193, 4, 46, 191, 56, 0, 0, 64, 62, 0, 0, 48, 63, 0, 0, 128, 61, 0, 0, 127, 193, 252, 47, 191, 56, 0, 0, 128, 61, 0, 0, 0, 61, 0, 0, 128, 61, 0, 0, 127, 193, 4, 46, 130, 52, 0, 0, 64, 62, 0, 0, 0, 61, 0, 0, 128, 61, 0, 0, 127, 193, 252, 47, 130, 52, 0, 0, 64, 62, 0, 0, 48, 63, 0, 0, 128, 189, 127, 127, 129, 193, 8, 40, 191, 56, 0, 0, 128, 61, 0, 0, 48, 63, 0, 0, 128, 189, 127, 127, 129, 193, 248, 43, 191, 56, 0, 0, 64, 62, 0, 0, 0, 61, 0, 0, 128, 189, 127, 127, 129, 193, 8, 40, 130, 52, 0, 0, 128, 61, 0, 0, 0, 61, 0, 0, 128, 189, 127, 127, 129, 193, 248, 43, 130, 52 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="ArrayMesh" id=12]
+resource_name = "blockbench_export_mesh9"
+surfaces/0 = {
+"aabb": AABB( -0.1875, 0.03125, -0.0625, 0.12501, 0.65626, 0.12501 ),
+"array_data": PoolByteArray( 0, 0, 128, 189, 0, 0, 48, 63, 0, 0, 128, 61, 127, 0, 127, 129, 0, 12, 191, 56, 0, 0, 128, 189, 0, 0, 48, 63, 0, 0, 128, 189, 127, 0, 127, 129, 240, 39, 191, 56, 0, 0, 128, 189, 0, 0, 0, 61, 0, 0, 128, 61, 127, 0, 127, 129, 0, 12, 130, 52, 0, 0, 128, 189, 0, 0, 0, 61, 0, 0, 128, 189, 127, 0, 127, 129, 240, 39, 130, 52, 0, 0, 64, 190, 0, 0, 48, 63, 0, 0, 128, 189, 129, 0, 0, 193, 4, 44, 191, 56, 0, 0, 64, 190, 0, 0, 48, 63, 0, 0, 128, 61, 129, 0, 0, 193, 252, 45, 191, 56, 0, 0, 64, 190, 0, 0, 0, 61, 0, 0, 128, 189, 129, 0, 0, 193, 4, 44, 130, 52, 0, 0, 64, 190, 0, 0, 0, 61, 0, 0, 128, 61, 129, 0, 0, 193, 252, 45, 130, 52, 0, 0, 64, 190, 0, 0, 48, 63, 0, 0, 128, 189, 0, 127, 129, 193, 248, 43, 193, 56, 0, 0, 128, 189, 0, 0, 48, 63, 0, 0, 128, 189, 0, 127, 129, 193, 8, 40, 193, 56, 0, 0, 64, 190, 0, 0, 48, 63, 0, 0, 128, 61, 0, 127, 129, 193, 248, 43, 63, 57, 0, 0, 128, 189, 0, 0, 48, 63, 0, 0, 128, 61, 0, 127, 129, 193, 8, 40, 63, 57, 0, 0, 64, 190, 0, 0, 0, 61, 0, 0, 128, 61, 0, 129, 129, 63, 252, 45, 63, 57, 0, 0, 128, 189, 0, 0, 0, 61, 0, 0, 128, 61, 0, 129, 129, 63, 4, 44, 63, 57, 0, 0, 64, 190, 0, 0, 0, 61, 0, 0, 128, 189, 0, 129, 129, 63, 252, 45, 193, 56, 0, 0, 128, 189, 0, 0, 0, 61, 0, 0, 128, 189, 0, 129, 129, 63, 4, 44, 193, 56, 0, 0, 64, 190, 0, 0, 48, 63, 0, 0, 128, 61, 0, 0, 127, 193, 4, 46, 191, 56, 0, 0, 128, 189, 0, 0, 48, 63, 0, 0, 128, 61, 0, 0, 127, 193, 252, 47, 191, 56, 0, 0, 64, 190, 0, 0, 0, 61, 0, 0, 128, 61, 0, 0, 127, 193, 4, 46, 130, 52, 0, 0, 128, 189, 0, 0, 0, 61, 0, 0, 128, 61, 0, 0, 127, 193, 252, 47, 130, 52, 0, 0, 128, 189, 0, 0, 48, 63, 0, 0, 128, 189, 127, 127, 129, 193, 8, 40, 191, 56, 0, 0, 64, 190, 0, 0, 48, 63, 0, 0, 128, 189, 127, 127, 129, 193, 248, 43, 191, 56, 0, 0, 128, 189, 0, 0, 0, 61, 0, 0, 128, 189, 127, 127, 129, 193, 8, 40, 130, 52, 0, 0, 64, 190, 0, 0, 0, 61, 0, 0, 128, 189, 127, 127, 129, 193, 248, 43, 130, 52 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="DynamicFont" id=20]
+size = 13
+font_data = ExtResource( 8 )
+
+[node name="ArmorStandPoser" type="Node"]
+script = ExtResource( 3 )
+
+[node name="RotationGizmo" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.825052, 0, 0, 0, 0.825052, 0, 0, 0, 0.825052, 0, 0, 0 )
+visible = false
+
+[node name="GlobalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 2, 0 )
+directional_shadow_mode = 0
+directional_shadow_max_distance = 6.9
+
+[node name="arrow" type="MeshInstance" parent="."]
+mesh = ExtResource( 5 )
+material/0 = SubResource( 15 )
+
+[node name="armor_stand" type="Spatial" parent="."]
+
+[node name="plate" type="MeshInstance" parent="armor_stand"]
+mesh = SubResource( 13 )
+
+[node name="baseplate" type="StaticBody" parent="armor_stand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0308887, 0 )
+script = ExtResource( 7 )
+y_only = true
+
+[node name="CollisionShape" type="CollisionShape" parent="armor_stand/baseplate"]
+shape = SubResource( 21 )
+
+[node name="Mannequin" type="Spatial" parent="armor_stand/baseplate"]
+
+[node name="head_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26911, 0 )
+script = ExtResource( 7 )
+
+[node name="mesh" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/head_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.34375, 0 )
+mesh = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="armor_stand/baseplate/Mannequin/head_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25625, 0 )
+shape = SubResource( 14 )
+
+[node name="left_arm_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390625, 1.29724, 0 )
+script = ExtResource( 7 )
+
+[node name="left_arm" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/left_arm_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.390625, -1.32813, 0 )
+mesh = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="armor_stand/baseplate/Mannequin/left_arm_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0140644, -0.263693, 0 )
+shape = SubResource( 16 )
+
+[node name="right_arm_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.390625, 1.29724, 0 )
+script = ExtResource( 7 )
+
+[node name="right_arm" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/right_arm_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390625, -1.32813, 0 )
+mesh = SubResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="armor_stand/baseplate/Mannequin/right_arm_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0166283, -0.265588, 0 )
+shape = SubResource( 16 )
+
+[node name="body_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43786, 0 )
+script = ExtResource( 7 )
+
+[node name="left_rib" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/body_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.46875, 0 )
+mesh = SubResource( 7 )
+
+[node name="right_rib" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/body_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.46875, 0 )
+mesh = SubResource( 8 )
+
+[node name="collar" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/body_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.46875, 0 )
+mesh = SubResource( 9 )
+
+[node name="hip" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/body_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.46875, 0 )
+mesh = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="armor_stand/baseplate/Mannequin/body_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.135493, 0 )
+shape = SubResource( 17 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="armor_stand/baseplate/Mannequin/body_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.716828, 0 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="armor_stand/baseplate/Mannequin/body_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125756, -0.431333, 0 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape" type="CollisionShape" parent="armor_stand/baseplate/Mannequin/body_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.128138, -0.450513, 0 )
+shape = SubResource( 18 )
+
+[node name="left_leg_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0.719111, 0 )
+script = ExtResource( 7 )
+
+[node name="left_leg" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/left_leg_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.75, 0 )
+mesh = SubResource( 11 )
+
+[node name="CollisionShape" type="CollisionShape" parent="armor_stand/baseplate/Mannequin/left_leg_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375335, 0 )
+shape = SubResource( 16 )
+
+[node name="right_leg_bone" type="StaticBody" parent="armor_stand/baseplate/Mannequin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0.719111, 0 )
+script = ExtResource( 7 )
+
+[node name="right_leg" type="MeshInstance" parent="armor_stand/baseplate/Mannequin/right_leg_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -0.75, 0 )
+mesh = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="armor_stand/baseplate/Mannequin/right_leg_bone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375335, 0 )
+shape = SubResource( 16 )
+
+[node name="OrbitCamera" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1, 0 )
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="OrbitCamera"]
+transform = Transform( 1, 0, 0, 0, 1, 5.96046e-08, 0, -1.19209e-07, 1, 0, 0, 3 )
+current = true
+fov = 45.0
+
+[node name="LocalLight" type="DirectionalLight" parent="OrbitCamera"]
+transform = Transform( 0.970059, 0, 0.24287, -0.0628594, 0.965926, 0.25107, -0.234595, -0.258819, 0.937005, 0, 0, 0 )
+visible = false
+directional_shadow_mode = 0
+directional_shadow_max_distance = 6.9
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ViewportArea" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BottomTabs" type="TabContainer" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -56.0
+margin_right = -192.0
+tab_align = 0
+
+[node name="Export" type="Tabs" parent="CanvasLayer/BottomTabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BottomTabs/Export"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/BottomTabs/Export/VBoxContainer"]
+margin_right = 832.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="ClipboardButton" type="Button" parent="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer"]
+margin_right = 141.0
+margin_bottom = 31.0
+text = "Copy to Clipboard"
+
+[node name="Text" type="TextEdit" parent="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer"]
+margin_left = 141.0
+margin_right = 832.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "/summon reddit:moderator {Passenger:{id:\"discord:moderator\"}}"
+readonly = true
+wrap_enabled = true
+
+[node name="X" type="HBoxContainer" parent="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer/Text"]
+margin_left = 563.0
+margin_top = -96.0
+margin_right = 683.0
+margin_bottom = -72.0
+custom_constants/separation = 0
+
+[node name="Margin" type="ColorRect" parent="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer/Text/X"]
+margin_right = 4.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 4, 0 )
+color = Color( 1, 0.192157, 0.192157, 1 )
+
+[node name="xval" type="SpinBox" parent="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer/Text/X"]
+margin_left = 4.0
+margin_right = 120.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+min_value = -1e+08
+max_value = 1e+08
+allow_greater = true
+allow_lesser = true
+
+[node name="PropertiesTabs" type="TabContainer" parent="CanvasLayer"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -320.0
+margin_top = -176.0
+margin_right = -200.0
+margin_bottom = -40.0
+tab_align = 0
+
+[node name="Properties" type="Tabs" parent="CanvasLayer/PropertiesTabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+script = ExtResource( 11 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PropertiesTabs/Properties"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PropertiesTabs/Properties/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 20.0
+text = "Rotation"
+
+[node name="Y" type="HBoxContainer" parent="CanvasLayer/PropertiesTabs/Properties/VBoxContainer"]
+margin_top = 52.0
+margin_right = 120.0
+margin_bottom = 76.0
+custom_constants/separation = 0
+
+[node name="Margin" type="ColorRect" parent="CanvasLayer/PropertiesTabs/Properties/VBoxContainer/Y"]
+margin_right = 4.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 4, 0 )
+color = Color( 0.152941, 1, 0.152941, 1 )
+
+[node name="yval" type="SpinBox" parent="CanvasLayer/PropertiesTabs/Properties/VBoxContainer/Y"]
+margin_left = 4.0
+margin_right = 120.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+min_value = -1e+08
+max_value = 1e+08
+allow_greater = true
+allow_lesser = true
+
+[node name="Z" type="HBoxContainer" parent="CanvasLayer/PropertiesTabs/Properties/VBoxContainer"]
+margin_top = 80.0
+margin_right = 120.0
+margin_bottom = 104.0
+custom_constants/separation = 0
+
+[node name="Margin" type="ColorRect" parent="CanvasLayer/PropertiesTabs/Properties/VBoxContainer/Z"]
+margin_right = 4.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 4, 0 )
+color = Color( 0.160784, 0.160784, 1, 1 )
+
+[node name="zval" type="SpinBox" parent="CanvasLayer/PropertiesTabs/Properties/VBoxContainer/Z"]
+margin_left = 4.0
+margin_right = 120.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+min_value = -1e+08
+max_value = 1e+08
+allow_greater = true
+allow_lesser = true
+
+[node name="RightTabs" type="TabContainer" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -192.0
+margin_top = 16.0
+tab_align = 0
+
+[node name="Entity Data" type="Tabs" parent="CanvasLayer/RightTabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+rect_pivot_offset = Vector2( -516, 200 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/RightTabs/Entity Data"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ArmorStandTags" type="VBoxContainer" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer"]
+margin_right = 192.0
+margin_bottom = 559.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 12 )
+
+[node name="Title" type="Label" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_right = 192.0
+margin_bottom = 20.0
+text = "NBT Tags"
+align = 1
+
+[node name="ArmorStandLabel" type="Label" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 24.0
+margin_right = 192.0
+margin_bottom = 44.0
+text = "Armor Stand"
+
+[node name="InvisibleOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 48.0
+margin_right = 192.0
+margin_bottom = 68.0
+text = "Invisible"
+
+[node name="MarkerOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 72.0
+margin_right = 192.0
+margin_bottom = 92.0
+text = "Marker"
+
+[node name="SmallOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 96.0
+margin_right = 192.0
+margin_bottom = 116.0
+text = "Small"
+
+[node name="ShowArmsOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 120.0
+margin_right = 192.0
+margin_bottom = 140.0
+pressed = true
+text = "Show Arms"
+
+[node name="NoBasePlateOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 144.0
+margin_right = 192.0
+margin_bottom = 164.0
+text = "No Base Plate"
+
+[node name="Margin" type="MarginContainer" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 168.0
+margin_right = 192.0
+margin_bottom = 175.981
+rect_min_size = Vector2( 0, 7.981 )
+
+[node name="EntityLabel" type="Label" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 179.0
+margin_right = 192.0
+margin_bottom = 199.0
+text = "Entity"
+
+[node name="InvunerableOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 203.0
+margin_right = 192.0
+margin_bottom = 223.0
+text = "Invunerable"
+
+[node name="NoGravityOption" type="CheckBox" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 227.0
+margin_right = 192.0
+margin_bottom = 247.0
+text = "No Gravity"
+
+[node name="Margin2" type="MarginContainer" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 251.0
+margin_right = 192.0
+margin_bottom = 258.981
+rect_min_size = Vector2( 0, 7.981 )
+
+[node name="TagsLabel" type="Label" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 262.0
+margin_right = 192.0
+margin_bottom = 282.0
+text = "Tags"
+
+[node name="TagsTextEdit" type="TextEdit" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 286.0
+margin_right = 192.0
+margin_bottom = 512.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Credits" type="Label" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
+margin_top = 516.0
+margin_right = 192.0
+margin_bottom = 559.0
+text = "GN's Armor Stand
+Editor"
+align = 1
+
+[node name="Slots" type="Tabs" parent="CanvasLayer/RightTabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/RightTabs/Slots"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/RightTabs/Slots/ScrollContainer"]
+margin_right = 192.0
+margin_bottom = 534.0
+size_flags_horizontal = 3
+
+[node name="DisabledSlots" type="VBoxContainer" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer"]
+margin_right = 192.0
+margin_bottom = 270.0
+size_flags_horizontal = 3
+script = ExtResource( 13 )
+
+[node name="Title" type="Label" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots"]
+margin_right = 192.0
+margin_bottom = 20.0
+text = "Disabled Slots"
+align = 1
+
+[node name="Info" type="RichTextLabel" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots"]
+margin_top = 24.0
+margin_right = 192.0
+margin_bottom = 126.0
+custom_colors/default_color = Color( 1, 1, 1, 0.376471 )
+custom_fonts/normal_font = SubResource( 20 )
+text = "uncheck the box to disable that feature.
+
+Remove
+  |     Replace
+  |       |     Place"
+fit_content_height = true
+
+[node name="DisableSlotHead" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
+margin_top = 130.0
+margin_bottom = 150.0
+Name = "Helmet"
+
+[node name="DisableSlotChestplate" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
+margin_top = 154.0
+margin_bottom = 174.0
+Name = "Chestplate"
+
+[node name="DisableSlotLeggings" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
+margin_top = 178.0
+margin_bottom = 198.0
+Name = "Leggings"
+
+[node name="DisableSlotBoots" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
+margin_top = 202.0
+margin_bottom = 222.0
+Name = "Boots"
+
+[node name="DisableSlotMainHand" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
+margin_top = 226.0
+margin_bottom = 246.0
+Name = "Main Hand"
+
+[node name="DisableSlotOffHand" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
+margin_top = 250.0
+margin_bottom = 270.0
+Name = "Off hand"
+
+[node name="EquipedItems" type="VBoxContainer" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer"]
+margin_top = 274.0
+margin_right = 192.0
+margin_bottom = 534.0
+script = ExtResource( 14 )
+
+[node name="Title" type="Label" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
+margin_right = 192.0
+margin_bottom = 20.0
+text = "Equiped Items"
+align = 1
+
+[node name="Info" type="RichTextLabel" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
+margin_top = 24.0
+margin_right = 192.0
+margin_bottom = 92.0
+custom_colors/default_color = Color( 1, 1, 1, 0.376471 )
+custom_fonts/normal_font = SubResource( 20 )
+text = "items that will be included into the armor stand, examples:
+
+minecraft:diamond_helmet"
+fit_content_height = true
+
+[node name="HelmetItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
+margin_top = 96.0
+margin_right = 192.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+placeholder_text = "Helmet"
+
+[node name="ChestplateItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
+margin_top = 124.0
+margin_right = 192.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+placeholder_text = "Chestplate"
+
+[node name="LeggingsItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
+margin_top = 152.0
+margin_right = 192.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+placeholder_text = "Leggings"
+
+[node name="BootsItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
+margin_top = 180.0
+margin_right = 192.0
+margin_bottom = 204.0
+size_flags_horizontal = 3
+placeholder_text = "Boots"
+
+[node name="MainHandItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
+margin_top = 208.0
+margin_right = 192.0
+margin_bottom = 232.0
+size_flags_horizontal = 3
+placeholder_text = "Main Hand"
+
+[node name="OffHandItem" type="LineEdit" parent="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
+margin_top = 236.0
+margin_right = 192.0
+margin_bottom = 260.0
+size_flags_horizontal = 3
+placeholder_text = "Off Hand"
+
+[node name="LightingToggleButton" type="Button" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -336.0
+margin_top = 8.0
+margin_right = -304.0
+margin_bottom = 40.0
+hint_tooltip = "Toggles the lighting
+Local : lighting rotates with the camera
+Global : lighting stays still"
+theme_type_variation = "StandaloneButton"
+toggle_mode = true
+action_mode = 0
+icon = ExtResource( 4 )
+expand_icon = true
+
+[node name="SnapToggleButton" type="Button" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -296.0
+margin_top = 8.0
+margin_right = -264.0
+margin_bottom = 40.0
+hint_tooltip = "Toggles the Rotation snapping"
+theme_type_variation = "StandaloneButton"
+toggle_mode = true
+action_mode = 0
+icon = ExtResource( 10 )
+expand_icon = true
+
+[node name="SnapStep" type="SpinBox" parent="CanvasLayer/SnapToggleButton"]
+margin_left = 32.0
+margin_right = 104.0
+margin_bottom = 32.0
+value = 15.0
+allow_greater = true
+allow_lesser = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+
+[connection signal="mouse_entered" from="CanvasLayer/ViewportArea" to="." method="_on_ViewportArea_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/ViewportArea" to="." method="_on_ViewportArea_mouse_exited"]
+[connection signal="value_changed" from="CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer/Text/X/xval" to="CanvasLayer/PropertiesTabs/Properties" method="_on_xval_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/PropertiesTabs/Properties/VBoxContainer/Y/yval" to="CanvasLayer/PropertiesTabs/Properties" method="_on_yval_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/PropertiesTabs/Properties/VBoxContainer/Z/zval" to="CanvasLayer/PropertiesTabs/Properties" method="_on_zval_value_changed"]
+[connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/InvisibleOption" to="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags" method="_on_InvisibleOption_toggled"]
+[connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/MarkerOption" to="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags" method="_on_MarkerOption_toggled"]
+[connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/SmallOption" to="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags" method="_on_SmallOption_toggled"]
+[connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/ShowArmsOption" to="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags" method="_on_ShowArmsOption_toggled"]
+[connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/NoBasePlateOption" to="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags" method="_on_NoBasePlateOption_toggled"]
+[connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/InvunerableOption" to="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags" method="_on_InvunerableOption_toggled"]
+[connection signal="toggled" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/NoGravityOption" to="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags" method="_on_NoGravityOption_toggled"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/TagsTextEdit" to="CanvasLayer/RightTabs/Entity Data/ScrollContainer/ArmorStandTags" method="_on_TagsTextEdit_text_changed"]
+[connection signal="values_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots/DisableSlotHead" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" method="_on_DisableSlotHead_values_changed"]
+[connection signal="values_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots/DisableSlotChestplate" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" method="_on_DisableSlotChestplate_values_changed"]
+[connection signal="values_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots/DisableSlotLeggings" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" method="_on_DisableSlotLeggings_values_changed"]
+[connection signal="values_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots/DisableSlotBoots" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" method="_on_DisableSlotBoots_values_changed"]
+[connection signal="values_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots/DisableSlotMainHand" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" method="_on_DisableSlotMainHand_values_changed"]
+[connection signal="values_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots/DisableSlotOffHand" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" method="_on_DisableSlotOffHand_values_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/HelmetItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_HelmetItem_text_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/ChestplateItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_ChestplateItem_text_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/LeggingsItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_LeggingsItem_text_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/BootsItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_BootsItem_text_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/MainHandItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_MainHandItem_text_changed"]
+[connection signal="text_changed" from="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/OffHandItem" to="CanvasLayer/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_OffHandItem_text_changed"]
+[connection signal="toggled" from="CanvasLayer/LightingToggleButton" to="." method="_on_LightingToggleButton_toggled"]
+[connection signal="toggled" from="CanvasLayer/SnapToggleButton" to="." method="_on_SnapToggleButton_toggled"]
+[connection signal="value_changed" from="CanvasLayer/SnapToggleButton/SnapStep" to="." method="_on_SnapStep_value_changed"]

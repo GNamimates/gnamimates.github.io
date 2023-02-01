@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/armor_stand.obj-605949c713b6547805edff608ecb4697.mesh"
+
+[deps]
+
+files=[ "res://.import/armor_stand.obj-605949c713b6547805edff608ecb4697.mesh" ]
+
+source_file="res://models/armor_stand.obj"
+dest_files=[ "res://.import/armor_stand.obj-605949c713b6547805edff608ecb4697.mesh", "res://.import/armor_stand.obj-605949c713b6547805edff608ecb4697.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
