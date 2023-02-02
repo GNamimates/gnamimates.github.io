@@ -342,7 +342,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375335, 0 )
 shape = SubResource( 16 )
 
 [node name="OrbitCamera" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1, 0 )
+transform = Transform( 0.965926, -0.0669873, 0.25, 0, 0.965926, 0.258819, -0.258819, -0.25, 0.933013, 0.500928, 0.892105, 0 )
 script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="OrbitCamera"]
@@ -358,7 +358,7 @@ directional_shadow_max_distance = 6.9
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="versionLabel" type="Label" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0.196078 )
 margin_left = 8.0
 margin_top = 8.0
@@ -408,7 +408,6 @@ tab_align = 2
 script = ExtResource( 15 )
 
 [node name="Hide" type="Tabs" parent="CanvasLayer/Control/BottomTabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -417,6 +416,7 @@ margin_right = -8.0
 margin_bottom = -8.0
 
 [node name="Home" type="Tabs" parent="CanvasLayer/Control/BottomTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -429,8 +429,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer"]
-margin_right = 756.0
-margin_bottom = 688.0
+margin_right = 776.0
+margin_bottom = 763.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
@@ -439,56 +439,55 @@ margin_bottom = 36.0
 custom_fonts/font = SubResource( 22 )
 text = "Armor Stand GeNerator"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
+[node name="Info" type="RichTextLabel" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
 margin_top = 40.0
 margin_right = 756.0
-margin_bottom = 166.0
+margin_bottom = 145.0
 text = "an Editor that lets you create armor stand poses
-(you can safely save this webpage locally and this would still work c: )
+(Downloadable version coming soon!)
 by: GNamimates
-version: 0.2
 
 found bugs? help me fix it by reporting it to me!"
 fit_content_height = true
 
 [node name="ReportBugButton" type="Button" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
-margin_top = 170.0
+margin_top = 149.0
 margin_right = 177.0
-margin_bottom = 222.0
+margin_bottom = 201.0
 size_flags_horizontal = 0
 text = "Report Bug (Github)"
 script = ExtResource( 19 )
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
-margin_top = 226.0
+margin_top = 205.0
 margin_right = 756.0
-margin_bottom = 230.0
+margin_bottom = 209.0
 
 [node name="Label2" type="Label" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
-margin_top = 234.0
+margin_top = 213.0
 margin_right = 756.0
-margin_bottom = 265.0
+margin_bottom = 244.0
 custom_fonts/font = SubResource( 23 )
 text = "Changelog"
 
 [node name="v01" type="RichTextLabel" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
-margin_top = 269.0
+margin_top = 248.0
 margin_right = 756.0
-margin_bottom = 332.0
+margin_bottom = 311.0
 text = "V 0.1
 * Added the Editor
 * Added the Armor Stand"
 fit_content_height = true
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
-margin_top = 336.0
+margin_top = 315.0
 margin_right = 756.0
-margin_bottom = 340.0
+margin_bottom = 319.0
 
 [node name="v02" type="RichTextLabel" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
-margin_top = 344.0
+margin_top = 323.0
 margin_right = 756.0
-margin_bottom = 428.0
+margin_bottom = 407.0
 rect_pivot_offset = Vector2( -12, -88 )
 text = "V 0.2
 * Overhauled the theme to look like minecraft (very proud of it)
@@ -497,19 +496,38 @@ text = "V 0.2
 fit_content_height = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
-margin_top = 432.0
+margin_top = 411.0
 margin_right = 756.0
-margin_bottom = 688.0
+margin_bottom = 667.0
 rect_min_size = Vector2( 0, 256 )
 texture = ExtResource( 18 )
 expand = true
 stretch_mode = 5
 
+[node name="HSeparator3" type="HSeparator" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
+margin_top = 671.0
+margin_right = 756.0
+margin_bottom = 675.0
+
+[node name="v021" type="RichTextLabel" parent="CanvasLayer/Control/BottomTabs/Home/ScrollContainer/VBoxContainer"]
+margin_top = 679.0
+margin_right = 756.0
+margin_bottom = 763.0
+rect_pivot_offset = Vector2( -12, -88 )
+text = "V 0.2.1
+* Bottom Tabs tweaked to look better for the new theme
+* 3D Camera Tweaked to face the armor stand at startup
+* version label on the top left is removed"
+fit_content_height = true
+
 [node name="Export" type="Tabs" parent="CanvasLayer/Control/BottomTabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 25.0
+margin_left = 8.0
+margin_top = 56.0
+margin_right = -8.0
+margin_bottom = -8.0
 grow_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BottomTabs/Export"]
@@ -518,25 +536,25 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/BottomTabs/Export/VBoxContainer"]
-margin_right = 820.0
-margin_bottom = 67.0
+margin_right = 776.0
+margin_bottom = 466.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer"]
-margin_right = 136.0
-margin_bottom = 67.0
+margin_right = 162.0
+margin_bottom = 466.0
 
 [node name="ClipboardButton" type="Button" parent="CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 136.0
-margin_bottom = 46.0
+margin_right = 162.0
+margin_bottom = 52.0
 text = "Copy to Clipboard"
 
 [node name="Info" type="RichTextLabel" parent="CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 50.0
-margin_right = 136.0
-margin_bottom = 67.0
+margin_top = 56.0
+margin_right = 162.0
+margin_bottom = 73.0
 custom_colors/default_color = Color( 1, 1, 1, 0.376471 )
 custom_fonts/normal_font = SubResource( 20 )
 text = "Minecraft 1.16+"
@@ -553,9 +571,9 @@ text = "command is too long for chat, command block required"
 fit_content_height = true
 
 [node name="Command" type="TextEdit" parent="CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer"]
-margin_left = 136.0
-margin_right = 820.0
-margin_bottom = 67.0
+margin_left = 162.0
+margin_right = 776.0
+margin_bottom = 466.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 readonly = true
@@ -669,7 +687,6 @@ margin_top = 16.0
 tab_align = 0
 
 [node name="Entity Data" type="Tabs" parent="CanvasLayer/RightTabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -684,7 +701,7 @@ anchor_bottom = 1.0
 scroll_horizontal_enabled = false
 
 [node name="ArmorStandTags" type="VBoxContainer" parent="CanvasLayer/RightTabs/Entity Data/ScrollContainer"]
-margin_right = 216.0
+margin_right = 196.0
 margin_bottom = 633.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -827,6 +844,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Slots" type="Tabs" parent="CanvasLayer/RightTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -839,7 +857,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/RightTabs/Slots/ScrollContainer"]
-margin_right = 196.0
+margin_right = 267.0
 margin_bottom = 726.0
 size_flags_horizontal = 3
 

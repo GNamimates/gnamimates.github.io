@@ -12,6 +12,7 @@ func _ready():
 	ArmorStand.connect("small_changed",self,"_small_changed")
 	ArmorStand.connect("show_arms_changed",self,"_arms_changed")
 	ArmorStand.connect("property_changed",self,"_armorstand_update")
+	$CanvasLayer/versionLabel.text = "Armor Stand GeNerator v" + Global.version
 
 func _input(event):
 	if event is InputEventMouseMotion:# Hightlighter
