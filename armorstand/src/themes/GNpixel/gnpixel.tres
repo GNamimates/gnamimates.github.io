@@ -151,8 +151,6 @@ margin_left = 12.0
 margin_right = 12.0
 margin_top = 12.0
 margin_bottom = 20.0
-expand_margin_left = 4.0
-expand_margin_right = 4.0
 expand_margin_top = 8.0
 expand_margin_bottom = 8.0
 
@@ -163,18 +161,16 @@ margin_left = 12.0
 margin_right = 12.0
 margin_top = 12.0
 margin_bottom = 20.0
-expand_margin_left = 4.0
-expand_margin_right = 4.0
 expand_margin_top = 8.0
 expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id=25]
 texture = ExtResource( 1 )
-region_rect = Rect2( 16, 136, 20, 20 )
-margin_left = 8.0
-margin_right = 8.0
-margin_top = 8.0
-margin_bottom = 8.0
+region_rect = Rect2( 44, 136, 28, 28 )
+margin_left = 12.0
+margin_right = 12.0
+margin_top = 12.0
+margin_bottom = 12.0
 
 [sub_resource type="DynamicFont" id=31]
 font_data = ExtResource( 2 )

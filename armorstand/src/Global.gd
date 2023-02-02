@@ -5,7 +5,7 @@ var gizmo_highlighted = false
 var mouse_in_viewport = false
 var snap = 0
 
-var version = "0.2.1"
+var version = "0.2.2"
 
 var selected = null
 var last_selected = null

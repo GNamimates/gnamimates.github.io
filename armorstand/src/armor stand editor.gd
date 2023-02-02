@@ -83,8 +83,8 @@ func _arms_changed():
 
 func _armorstand_update():
 	var cmd = ArmorStand.getNBTString()
-	$CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer/VBoxContainer/toolong.visible = (cmd.length() > 256)
-	$CanvasLayer/Control/BottomTabs/Export/VBoxContainer/HBoxContainer/Command.text = cmd
+	$CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer/VBoxContainer/toolong.visible = (cmd.length() > 256)
+	$CanvasLayer/BottomTabs/Export/VBoxContainer/HBoxContainer/Command.text = cmd
 
 
 func _on_CustomName_text_changed(new):

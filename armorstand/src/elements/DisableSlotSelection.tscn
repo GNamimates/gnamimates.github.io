@@ -9,7 +9,7 @@ script = ExtResource( 1 )
 Name = "Armor Stand Item Slot"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 238.0
+margin_right = 267.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 custom_constants/separation = 0
@@ -33,9 +33,9 @@ pressed = true
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 margin_left = 96.0
-margin_top = 9.0
-margin_right = 238.0
-margin_bottom = 23.0
+margin_top = 6.0
+margin_right = 267.0
+margin_bottom = 26.0
 text = "Armor Stand Item Slot"
 
 [connection signal="toggled" from="HBoxContainer/CheckBoxRemove" to="." method="_on_CheckBoxRemove_toggled"]

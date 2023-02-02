@@ -57,7 +57,7 @@ func _helmet_count_changed(count):
 	helmet_count = count
 	emit_signal("property_changed")
 
-export(String) var chestplate_item setget _helmet_item_changed
+export(String) var chestplate_item setget _chestplate_item_changed
 func _chestplate_item_changed(value):
 	chestplate_item = value
 	emit_signal("property_changed")
@@ -232,7 +232,7 @@ func getNBTString():
 		armor_items[2].id = '"'+leggings_item+'"'
 		armor_items[2].Count = leggings_count
 		armor_has_something = true
-	if chestplate_item != "":
+	if boots_item != "":
 		armor_items[3].id = '"'+boots_item+'"'
 		armor_items[3].Count = boots_count
 		armor_has_something = true

@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Armor Stand Editor"
+config/name="Armor Stand Generator"
 run/main_scene="res://armor stand editor.tscn"
 config/icon="res://icon.png"
 
