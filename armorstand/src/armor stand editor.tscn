@@ -670,7 +670,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer"]
-margin_right = 216.0
+margin_right = 267.0
 margin_bottom = 726.0
 size_flags_horizontal = 3
 
@@ -951,7 +951,7 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BottomTabs/Home/ScrollContainer"]
 margin_right = 780.0
-margin_bottom = 964.0
+margin_bottom = 1048.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/BottomTabs/Home/ScrollContainer/VBoxContainer"]
@@ -1060,7 +1060,7 @@ margin_right = 760.0
 margin_bottom = 943.0
 rect_pivot_offset = Vector2( -12, -88 )
 focus_mode = 2
-text = "V 0.22
+text = "V 0.2.2
 Changes:
 * Tags Label resized to match the other labels
 * Tweaked the Disabled Slots Info to point towards the right buttons
