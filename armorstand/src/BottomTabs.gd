@@ -4,8 +4,8 @@ extends TabContainer
 
 func _on_BottomTabs_tab_changed(tab):
 	if tab == 0:
-		rect_position.y = -24
-		rect_size.y = 55
+		rect_position.y = -44
+		rect_size.y = 94
 	elif tab == 2:
 		rect_position.y = -128
 		rect_size.y = 128

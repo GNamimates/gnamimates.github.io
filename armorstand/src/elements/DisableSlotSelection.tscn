@@ -9,34 +9,34 @@ script = ExtResource( 1 )
 Name = "Armor Stand Item Slot"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 192.0
-margin_bottom = 20.0
+margin_right = 238.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
+custom_constants/separation = 0
 
 [node name="CheckBoxRemove" type="CheckBox" parent="HBoxContainer"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 0 )
+margin_right = 32.0
+margin_bottom = 32.0
 pressed = true
 
 [node name="CheckBoxReplace" type="CheckBox" parent="HBoxContainer"]
-margin_left = 24.0
-margin_right = 44.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 0 )
+margin_left = 32.0
+margin_right = 64.0
+margin_bottom = 32.0
 pressed = true
 
 [node name="CheckBoxPlace" type="CheckBox" parent="HBoxContainer"]
-margin_left = 48.0
-margin_right = 68.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 0 )
+margin_left = 64.0
+margin_right = 96.0
+margin_bottom = 32.0
 pressed = true
 
 [node name="Label" type="Label" parent="HBoxContainer"]
-margin_left = 72.0
-margin_right = 72.0
-margin_bottom = 20.0
+margin_left = 96.0
+margin_top = 9.0
+margin_right = 238.0
+margin_bottom = 23.0
+text = "Armor Stand Item Slot"
 
 [connection signal="toggled" from="HBoxContainer/CheckBoxRemove" to="." method="_on_CheckBoxRemove_toggled"]
 [connection signal="toggled" from="HBoxContainer/CheckBoxReplace" to="." method="_on_CheckBoxReplace_toggled"]
