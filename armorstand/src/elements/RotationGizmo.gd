@@ -20,12 +20,19 @@ var intersection_y = null
 var intersection_z = null
 
 var dragging = false
+var moved_selection = false
+var last_selection_last_rotation = null
 var last_intersection_pos = null
 
 func _ready():
 # warning-ignore:return_value_discarded
 	Global.connect("selected_changed",self,"_selected_changed")
 	Global.connect("selected_rotation_changed",self,"_selected_rotation_changed")
+	History.connect("undo",self,"update_gizmo")
+	History.connect("redo",self,"update_gizmo")
+
+func update_gizmo():
+	_selected_changed(Global.selected)
 
 func _selected_rotation_changed(source):
 	if source != self and Global.selected and !dragging:
@@ -109,11 +116,12 @@ func _input(event):
 						closes_axis_dist = zdist
 						Global.gizmo_highlighted = true
 			
-			
 		if event is InputEventMouseButton:
 			if event.button_index == BUTTON_LEFT and event.pressed and not event.is_echo():
 				if Global.gizmo_highlighted:
 					dragging = true
+					if Global.last_selected:
+						last_selection_last_rotation = Global.last_selected.true_rotation
 				axis_selected = axis_highlighting
 				match axis_selected:
 					AXIS.x:
@@ -127,6 +135,9 @@ func _input(event):
 						local_last = $Z.global_transform.basis.xform_inv(last_intersection_pos)
 			if event.button_index == BUTTON_LEFT and not event.pressed and not event.is_echo():
 				dragging = false
+				if moved_selection:
+					History.add_action(Global.last_selected,"true_rotation",last_selection_last_rotation,Global.selected.true_rotation,str("Rotated ",Global.last_selected.name.replace("_"," ")))
+					moved_selection = false
 		var valid_selected = true
 		match axis_selected:
 			AXIS.x:
@@ -145,18 +156,24 @@ func _input(event):
 					var local_current = $Z/Y/X.global_transform.basis.xform_inv(intersection_x)
 					var angle_diff = Vector2(local_current.y,local_current.z).angle()-Vector2(local_last.y,local_last.z).angle()
 					true_rot_raw.x += angle_diff
+					if angle_diff != 0:
+						moved_selection = true
 					local_last = $Z/Y/X.global_transform.basis.xform_inv(last_intersection_pos)
 					last_intersection_pos = intersection_x
 				AXIS.y:
 					var local_current = $Z/Y.global_transform.basis.xform_inv(intersection_y)
 					var angle_diff = Vector2(local_current.x,local_current.z).angle()-Vector2(local_last.x,local_last.z).angle()
 					true_rot_raw.y += angle_diff
+					if angle_diff != 0:
+						moved_selection = true
 					local_last = $Z/Y.global_transform.basis.xform_inv(last_intersection_pos)
 					last_intersection_pos = intersection_y
 				AXIS.z:
 					var local_current = $Z.global_transform.basis.xform_inv(intersection_z)
 					var angle_diff = Vector2(local_current.x,local_current.y).angle()-Vector2(local_last.x,local_last.y).angle()
 					true_rot_raw.z -= angle_diff
+					if angle_diff != 0:
+						moved_selection = true
 					local_last = $Z.global_transform.basis.xform_inv(last_intersection_pos)
 					last_intersection_pos = intersection_z
 				

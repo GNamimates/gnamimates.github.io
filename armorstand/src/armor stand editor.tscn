@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://models/armor_stand.material" type="Material" id=1]
 [ext_resource path="res://OrbitCamera.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://themes/GNpixel/biglabel.tres" type="DynamicFont" id=17]
 [ext_resource path="res://images/theme overhaul.jpg" type="Texture" id=18]
 [ext_resource path="res://HyperlinkButton.gd" type="Script" id=19]
+[ext_resource path="res://HistoryTab.gd" type="Script" id=20]
 
 [sub_resource type="SpatialMaterial" id=15]
 flags_transparent = true
@@ -397,9 +398,9 @@ mouse_filter = 2
 [node name="PropertiesTabs" type="TabContainer" parent="CanvasLayer/RightAnchor"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -228.0
+margin_left = -240.0
 margin_top = 68.0
-margin_right = -116.0
+margin_right = -128.0
 margin_bottom = 288.0
 tab_align = 0
 
@@ -494,7 +495,7 @@ allow_lesser = true
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -232.0
+margin_left = -244.0
 margin_top = 16.0
 tab_align = 0
 
@@ -513,14 +514,14 @@ anchor_bottom = 1.0
 scroll_horizontal_enabled = false
 
 [node name="ArmorStandTags" type="VBoxContainer" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer"]
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 641.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 12 )
 
 [node name="Title" type="Label" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 17 )
 text = "NBT Tags"
@@ -528,129 +529,129 @@ align = 1
 
 [node name="CustomNameLabel" type="Label" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 32.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 52.0
 text = "Custom Name"
 
 [node name="CustomName" type="LineEdit" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 56.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 96.0
 
 [node name="RawJsonNameCheckBox" type="CheckBox" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 100.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 132.0
 text = "Raw Json Name"
 
 [node name="ShowCustomNameCheckBox" type="CheckBox" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 136.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 168.0
 text = "Show Custom Name"
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 172.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 176.0
 
 [node name="Margin3" type="MarginContainer" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 180.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 187.981
 rect_min_size = Vector2( 0, 7.981 )
 
 [node name="ArmorStandLabel" type="Label" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 191.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 219.0
 custom_fonts/font = ExtResource( 17 )
 text = "Armor Stand"
 
 [node name="InvisibleOption" type="CheckBox" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 223.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 255.0
 text = "Invisible"
 
 [node name="MarkerOption" type="CheckBox" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 259.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 291.0
 text = "Marker"
 
 [node name="SmallOption" type="CheckBox" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 295.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 327.0
 text = "Small"
 
 [node name="ShowArmsOption" type="CheckBox" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 331.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 363.0
 pressed = true
 text = "Show Arms"
 
 [node name="NoBasePlateOption" type="CheckBox" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 367.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 399.0
 text = "No Base Plate"
 
 [node name="Margin" type="MarginContainer" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 403.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 410.981
 rect_min_size = Vector2( 0, 7.981 )
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 414.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 418.0
 rect_pivot_offset = Vector2( -457, -146 )
 
 [node name="EntityLabel" type="Label" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 422.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 450.0
 custom_fonts/font = ExtResource( 17 )
 text = "Entity"
 
 [node name="InvunerableOption" type="CheckBox" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 454.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 486.0
 text = "Invunerable"
 
 [node name="NoGravityOption" type="CheckBox" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 490.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 522.0
 text = "No Gravity"
 
 [node name="HSeparator3" type="HSeparator" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 526.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 530.0
 rect_pivot_offset = Vector2( -457, -146 )
 
 [node name="Margin2" type="MarginContainer" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 534.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 541.981
 rect_min_size = Vector2( 0, 7.981 )
 
 [node name="TagsLabel" type="Label" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 545.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 573.0
 custom_fonts/font = ExtResource( 17 )
 text = "Tags"
 
 [node name="TagsTextEdit" type="TextEdit" parent="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags"]
 margin_top = 577.0
-margin_right = 193.0
+margin_right = 200.0
 margin_bottom = 641.0
 rect_min_size = Vector2( 0, 64 )
 size_flags_horizontal = 3
@@ -675,13 +676,13 @@ margin_bottom = 726.0
 size_flags_horizontal = 3
 
 [node name="DisabledSlots" type="VBoxContainer" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer"]
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 350.0
 size_flags_horizontal = 3
 script = ExtResource( 13 )
 
 [node name="Title" type="Label" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots"]
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 17 )
 text = "Disabled Slots"
@@ -689,7 +690,7 @@ align = 1
 
 [node name="Info" type="RichTextLabel" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots"]
 margin_top = 32.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 134.0
 custom_colors/default_color = Color( 1, 1, 1, 0.376471 )
 custom_fonts/normal_font = SubResource( 20 )
@@ -702,53 +703,53 @@ fit_content_height = true
 
 [node name="DisableSlotHead" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
 margin_top = 138.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 170.0
 Name = "Helmet"
 
 [node name="DisableSlotChestplate" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
 margin_top = 174.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 206.0
 Name = "Chestplate"
 
 [node name="DisableSlotLeggings" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
 margin_top = 210.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 242.0
 Name = "Leggings"
 
 [node name="DisableSlotBoots" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
 margin_top = 246.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 278.0
 Name = "Boots"
 
 [node name="DisableSlotMainHand" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
 margin_top = 282.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 314.0
 Name = "Main Hand"
 
 [node name="DisableSlotOffHand" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/DisabledSlots" instance=ExtResource( 9 )]
 margin_top = 318.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 350.0
 Name = "Off hand"
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer"]
 margin_top = 354.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 358.0
 
 [node name="EquipedItems" type="VBoxContainer" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer"]
 margin_top = 362.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 726.0
 script = ExtResource( 14 )
 
 [node name="Title" type="Label" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 17 )
 text = "Equiped Items"
@@ -756,7 +757,7 @@ align = 1
 
 [node name="Info" type="RichTextLabel" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
 margin_top = 32.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 100.0
 custom_colors/default_color = Color( 1, 1, 1, 0.376471 )
 custom_fonts/normal_font = SubResource( 20 )
@@ -767,20 +768,21 @@ fit_content_height = true
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems"]
 margin_top = 104.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 364.0
 columns = 2
 
 [node name="HelmetItem" type="LineEdit" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
-margin_right = 144.0
+margin_right = 132.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 placeholder_text = "Helmet"
 
 [node name="HelmetCount" type="SpinBox" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
-margin_left = 148.0
-margin_right = 196.0
+margin_left = 136.0
+margin_right = 200.0
 margin_bottom = 40.0
+rect_min_size = Vector2( 64, 0 )
 min_value = 1.0
 max_value = 64.0
 value = 1.0
@@ -789,16 +791,17 @@ align = 1
 
 [node name="ChestplateItem" type="LineEdit" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
 margin_top = 44.0
-margin_right = 144.0
+margin_right = 132.0
 margin_bottom = 84.0
 size_flags_horizontal = 3
 placeholder_text = "Chestplate"
 
 [node name="ChestplateCount" type="SpinBox" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
-margin_left = 148.0
+margin_left = 136.0
 margin_top = 44.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 84.0
+rect_min_size = Vector2( 64, 0 )
 min_value = 1.0
 max_value = 64.0
 value = 1.0
@@ -807,16 +810,17 @@ align = 1
 
 [node name="LeggingsItem" type="LineEdit" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
 margin_top = 88.0
-margin_right = 144.0
+margin_right = 132.0
 margin_bottom = 128.0
 size_flags_horizontal = 3
 placeholder_text = "Leggings"
 
 [node name="LeggingsCount" type="SpinBox" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
-margin_left = 148.0
+margin_left = 136.0
 margin_top = 88.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 128.0
+rect_min_size = Vector2( 64, 0 )
 min_value = 1.0
 max_value = 64.0
 value = 1.0
@@ -825,16 +829,17 @@ align = 1
 
 [node name="BootsItem" type="LineEdit" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
 margin_top = 132.0
-margin_right = 144.0
+margin_right = 132.0
 margin_bottom = 172.0
 size_flags_horizontal = 3
 placeholder_text = "Boots"
 
 [node name="BootsCount" type="SpinBox" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
-margin_left = 148.0
+margin_left = 136.0
 margin_top = 132.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 172.0
+rect_min_size = Vector2( 64, 0 )
 min_value = 1.0
 max_value = 64.0
 value = 1.0
@@ -843,16 +848,17 @@ align = 1
 
 [node name="MainHandItem" type="LineEdit" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
 margin_top = 176.0
-margin_right = 144.0
+margin_right = 132.0
 margin_bottom = 216.0
 size_flags_horizontal = 3
 placeholder_text = "Main Hand"
 
 [node name="MainHandCount" type="SpinBox" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
-margin_left = 148.0
+margin_left = 136.0
 margin_top = 176.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 216.0
+rect_min_size = Vector2( 64, 0 )
 min_value = 1.0
 max_value = 64.0
 value = 1.0
@@ -861,28 +867,84 @@ align = 1
 
 [node name="OffHandItem" type="LineEdit" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
 margin_top = 220.0
-margin_right = 144.0
+margin_right = 132.0
 margin_bottom = 260.0
 size_flags_horizontal = 3
 placeholder_text = "Off Hand"
 
 [node name="OffHandCount" type="SpinBox" parent="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer"]
-margin_left = 148.0
+margin_left = 136.0
 margin_top = 220.0
-margin_right = 196.0
+margin_right = 200.0
 margin_bottom = 260.0
+rect_min_size = Vector2( 64, 0 )
 min_value = 1.0
 max_value = 64.0
 value = 1.0
 rounded = true
 align = 1
 
+[node name="History" type="Tabs" parent="CanvasLayer/RightAnchor/RightTabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 56.0
+margin_right = -8.0
+margin_bottom = -8.0
+script = ExtResource( 20 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/RightAnchor/RightTabs/History"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_right = 4.0
+custom_constants/separation = -4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/RightAnchor/RightTabs/History/VBoxContainer"]
+margin_right = 236.0
+margin_bottom = 52.0
+custom_constants/separation = -12
+
+[node name="UndoButton" type="Button" parent="CanvasLayer/RightAnchor/RightTabs/History/VBoxContainer/HBoxContainer"]
+margin_right = 124.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+text = "Undo"
+
+[node name="RedoButton" type="Button" parent="CanvasLayer/RightAnchor/RightTabs/History/VBoxContainer/HBoxContainer"]
+margin_left = 112.0
+margin_right = 236.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+text = "Redo"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/RightAnchor/RightTabs/History/VBoxContainer"]
+margin_top = 48.0
+margin_right = 236.0
+margin_bottom = 520.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/RightAnchor/RightTabs/History/VBoxContainer/ScrollContainer"]
+custom_constants/separation = -17
+
+[node name="current" type="VBoxContainer" parent="CanvasLayer/RightAnchor/RightTabs/History/VBoxContainer/ScrollContainer/VBoxContainer"]
+size_flags_horizontal = 3
+custom_constants/separation = -17
+
+[node name="future" type="VBoxContainer" parent="CanvasLayer/RightAnchor/RightTabs/History/VBoxContainer/ScrollContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0.556863 )
+margin_top = -17.0
+margin_bottom = -17.0
+size_flags_horizontal = 3
+custom_constants/separation = -17
+
 [node name="LightingToggleButton" type="Button" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -412.0
+margin_left = -420.0
 margin_top = 12.0
-margin_right = -364.0
+margin_right = -372.0
 margin_bottom = 60.0
 hint_tooltip = "Toggles the lighting
 Local : lighting rotates with the camera
@@ -896,9 +958,9 @@ expand_icon = true
 [node name="SnapToggleButton" type="Button" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -364.0
+margin_left = -372.0
 margin_top = 12.0
-margin_right = -316.0
+margin_right = -324.0
 margin_bottom = 60.0
 hint_tooltip = "Toggles the Rotation snapping"
 theme_type_variation = "flatDarkButton"
@@ -921,7 +983,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -44.0
-margin_right = -228.0
+margin_right = -240.0
 margin_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -950,7 +1012,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BottomTabs/Home/ScrollContainer"]
-margin_right = 780.0
+margin_right = 768.0
 margin_bottom = 1048.0
 size_flags_horizontal = 3
 
@@ -1137,8 +1199,11 @@ wrap_enabled = true
 
 [connection signal="mouse_entered" from="CanvasLayer/ViewportArea" to="." method="_on_ViewportArea_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/ViewportArea" to="." method="_on_ViewportArea_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/RightAnchor/PropertiesTabs/Properties/VBoxContainer/X/xval" to="CanvasLayer/RightAnchor/PropertiesTabs/Properties" method="_on_xval_gui_input"]
 [connection signal="value_changed" from="CanvasLayer/RightAnchor/PropertiesTabs/Properties/VBoxContainer/X/xval" to="CanvasLayer/RightAnchor/PropertiesTabs/Properties" method="_on_xval_value_changed"]
+[connection signal="gui_input" from="CanvasLayer/RightAnchor/PropertiesTabs/Properties/VBoxContainer/Y/yval" to="CanvasLayer/RightAnchor/PropertiesTabs/Properties" method="_on_yval_gui_input"]
 [connection signal="value_changed" from="CanvasLayer/RightAnchor/PropertiesTabs/Properties/VBoxContainer/Y/yval" to="CanvasLayer/RightAnchor/PropertiesTabs/Properties" method="_on_yval_value_changed"]
+[connection signal="gui_input" from="CanvasLayer/RightAnchor/PropertiesTabs/Properties/VBoxContainer/Z/zval" to="CanvasLayer/RightAnchor/PropertiesTabs/Properties" method="_on_zval_gui_input"]
 [connection signal="value_changed" from="CanvasLayer/RightAnchor/PropertiesTabs/Properties/VBoxContainer/Z/zval" to="CanvasLayer/RightAnchor/PropertiesTabs/Properties" method="_on_zval_value_changed"]
 [connection signal="text_changed" from="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/CustomName" to="." method="_on_CustomName_text_changed"]
 [connection signal="toggled" from="CanvasLayer/RightAnchor/RightTabs/Entity Data/ScrollContainer/ArmorStandTags/RawJsonNameCheckBox" to="." method="_on_RawJsonNameCheckBox_toggled"]
@@ -1169,6 +1234,8 @@ wrap_enabled = true
 [connection signal="value_changed" from="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/MainHandCount" to="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_MainHandCount_value_changed"]
 [connection signal="text_changed" from="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/OffHandItem" to="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_OffHandItem_text_changed"]
 [connection signal="value_changed" from="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems/GridContainer/OffHandCount" to="CanvasLayer/RightAnchor/RightTabs/Slots/ScrollContainer/VBoxContainer/EquipedItems" method="_on_OffHandCount_value_changed"]
+[connection signal="pressed" from="CanvasLayer/RightAnchor/RightTabs/History/VBoxContainer/HBoxContainer/UndoButton" to="CanvasLayer/RightAnchor/RightTabs/History" method="_on_UndoButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/RightAnchor/RightTabs/History/VBoxContainer/HBoxContainer/RedoButton" to="CanvasLayer/RightAnchor/RightTabs/History" method="_on_RedoButton_pressed"]
 [connection signal="toggled" from="CanvasLayer/LightingToggleButton" to="." method="_on_LightingToggleButton_toggled"]
 [connection signal="toggled" from="CanvasLayer/SnapToggleButton" to="." method="_on_SnapToggleButton_toggled"]
 [connection signal="value_changed" from="CanvasLayer/SnapToggleButton/SnapStep" to="." method="_on_SnapStep_value_changed"]
