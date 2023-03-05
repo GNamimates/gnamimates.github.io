@@ -1,15 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>GNs Tools n' Stuff </title>
-</head>
-<body>
-   <H3>GNs Tools n' Stuff</H1>
-   im too lazy to bother make this page pretty<br>
-   » <a href="http://gnamimates.github.io/armorstand">Minecraft Armor Stand Editor</a>
-   » <a href="http://gnamimates.github.io/classic">Legacy GN Page</a>
-</body>
+    <head>
+        <style>
+            body {
+                background-image: url("wallpaper.png");
+                background-position: fixed;
+                background-size: cover;
+            }
+            @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+            html {
+                font-family: "OpenSans", sans-serif;
+                color: white;
+                font-size: 24px;
+                text-shadow: 0px 0px 10px black;
+            }
+            a.hidden {
+                text-decoration: none;
+            }
+            h1 {
+                margin: 5px;
+            }
+            span.front {
+                transition: transform 100ms;
+                will-change: transform;
+            }
+
+            button.pushable:hover .front {
+                transform: translateY(-5px);
+            }
+
+            button.pushable:active .front {
+                transform: translateY(-2px);
+            }
+            button.pushable {
+                background: #319c45;
+                border: none;
+                border-radius: 10px;
+                padding: 0;
+                cursor: pointer;
+                box-shadow: 0px 0px 5px black;
+                margin: 10px 5px;
+            }
+            span.front {
+                display: block;
+                padding: 6px 32px;
+                border-radius: 12px;
+                font-size: 24px;
+                background: #4dd966;
+                color: black;
+                transform: translateY(-6px);
+            }
+
+            button.pushable:focus:not(:focus-visible) {
+                outline: none;
+            }
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin-top: -20px;
+            }
+            div.secret-comment {
+                color: rgba(255, 255, 255, 0.053);
+            }
+        </style>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GNs Tools n' Stuff</title>
+    </head>
+    <body>
+        <center>
+            <h1>GNs Tools n' Stuff</h1>
+            the page is prettier now<br />
+            <div class="secret-comment">im proud of it<br /></div>
+            <a href="http://gnamimates.github.io/armorstand" class="hidden">
+                <button class="pushable">
+                    <span class="front"> Armor Stand Editor </span>
+                </button>
+            </a>
+            <a href="http://gnamimates.github.io/wack-a-duck" class="hidden">
+                <button class="pushable">
+                    <span class="front"> Wack a duck </span>
+                </button> </a
+            ><br />
+            <a href="http://gnamimates.github.io/classic" class="hidden">
+                <button class="pushable">
+                    <span class="front"> GN Legacy Page </span>
+                </button>
+            </a>
+        </center>
+    </body>
 </html>
