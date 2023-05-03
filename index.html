@@ -1,95 +1,189 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <style>
-            body {
-                background-image: url("wallpaper.png");
-                background-position: fixed;
-                background-size: cover;
-            }
-            @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
-            html {
-                font-family: "OpenSans", sans-serif;
-                color: white;
-                font-size: 24px;
-                text-shadow: 0px 0px 10px black;
-            }
-            a.hidden {
-                text-decoration: none;
-            }
-            h1 {
-                margin: 5px;
-            }
-            span.front {
-                transition: transform 100ms;
-                will-change: transform;
-            }
+<html name="ALL">
 
-            button.pushable:hover .front {
-                transform: translateY(-5px);
-            }
+<head>
+  <title>GN's tools n stuff - Home</title>
+  <script>
+    window.addEventListener('scroll', () => { document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight)); }, false);
+  </script>
+  <style>
+    @import url(clr.css);
+    @import url(generic.css);
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
 
-            button.pushable:active .front {
-                transform: translateY(-2px);
-            }
-            button.pushable {
-                background: #319c45;
-                border: none;
-                border-radius: 10px;
-                padding: 0;
-                cursor: pointer;
-                box-shadow: 0px 0px 5px black;
-                margin: 10px 5px;
-            }
-            span.front {
-                display: block;
-                padding: 6px 32px;
-                border-radius: 12px;
-                font-size: 24px;
-                background: #4dd966;
-                color: black;
-                transform: translateY(-6px);
-            }
+    body {
+      background-color: var(--light);
+      margin: 0;
+      font-size: 15pt;
+    }
+    
+    span.green {
+      color: var(--green3);
+    }
 
-            button.pushable:focus:not(:focus-visible) {
-                outline: none;
-            }
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin-top: -20px;
-            }
-            div.secret-comment {
-                color: rgba(255, 255, 255, 0.053);
-            }
-        </style>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>GNs Tools n' Stuff</title>
-    </head>
-    <body>
-        <center>
-            <h1>GNs Tools n' Stuff</h1>
-            the page is prettier now<br />
-            <div class="secret-comment">im proud of it<br /></div>
-            <a href="http://gnamimates.github.io/armorstand" class="hidden">
-                <button class="pushable">
-                    <span class="front"> Armor Stand Editor </span>
-                </button>
-            </a>
-            <a href="http://gnamimates.github.io/wack-a-duck" class="hidden">
-                <button class="pushable">
-                    <span class="front"> Wack a duck </span>
-                </button> </a
-            ><br />
-            <a href="http://gnamimates.github.io/classic" class="hidden">
-                <button class="pushable">
-                    <span class="front"> GN Legacy Page </span>
-                </button>
-            </a>
-        </center>
-    </body>
+    div.navigation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 40pt;
+      background-color: var(--light);
+
+      display: flex;
+      align-items: center;
+    }
+
+    a.logo {
+      height: 100%;
+      display: flex;
+      line-height: 35pt;
+    }
+
+    div.hero {
+      position: relative;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.193), rgba(0, 0, 0, 0.193)),
+        url("hero/layer1.png"),
+        url("hero/layer2.png"),
+        url("hero/layer3.png"),
+        url("hero/layer4.png"),
+        url("hero/layer5.png"),
+        url("hero/layer6.png");
+      background-size: cover, cover;
+      background-position-y:
+        0,
+        calc(var(--scroll) * -80vh),
+        calc(var(--scroll) * -60vh),
+        calc(var(--scroll) * -40vh),
+        calc(var(--scroll) * -20vh),
+        calc(var(--scroll) * -10vh);
+      background-attachment: fixed;
+
+      top: 40pt;
+      height: calc(100vh - 40pt - 40pt);
+      width: 100%;
+      image-rendering: pixelated;
+      margin-bottom: 120px;
+    }
+
+    span.hero-credits {
+      padding: 4px;
+      padding-left: 24pt;
+      color: var(--white);
+      background-image: linear-gradient(to left, var(--green5), transparent);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    span.hero-title {
+      position: absolute;
+      top: 30%;
+      left: 15%;
+      font-size: 60pt;
+      color: var(--white);
+      font-weight: 900;
+      font-family: 'Barlow', sans-serif;
+      text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    span.hero-subtitle {
+      position: absolute;
+      font-size: 20pt;
+      color: var(--white);
+      font-weight: 900;
+      line-height: 22pt;
+    }
+
+    div.container {
+      width: calc(100vw - 30vw);
+      margin: 0;
+      background-color: var(--light);
+      color: var(--dark);
+      padding-left: 15vw;
+      padding-right: 15vw;
+    }
+
+    div.rainbow-road {
+      position: absolute;
+      left: 0;
+      right: 0;
+      background-image: url("assets/preview-palette.png");
+      height: 48pt;
+      background-size: cover;
+      image-rendering: pixelated;
+      z-index: -1;
+      -webkit-filter: drop-shadow(0px 5px 5px var(--shadow));
+      filter: drop-shadow(0px 5px 5px var(--shadow));
+    }
+
+    div.block {
+      display: flex;
+      flex-wrap:wrap;
+    }
+
+    a.portal {
+      margin: 5px;
+    }
+
+    h1 {
+      font-family: 'Barlow', sans-serif;
+      line-height: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navigation">
+    <a href="https://gnamimates.github.io" class="logo">
+      <img src="logo.png" height="70%" class="logo">
+      <div class="logo">
+        <span class="green">GNamimates</span>
+      </div>
+    </a>
+  </div>
+  <div class="hero">
+    <span class="hero-title">
+      GN's Tools n' Stuff <br>
+      <span class="hero-subtitle">
+        Welcome to the place where I put small games<br> and tools for fun!
+      </span>
+    </span>
+    <span class="hero-credits">hero Art by
+      <a href="https://twitter.com/skeddles" target="_blank">Skeddles</a>
+    </span>
+  </div>
+  <div class="container">
+    <div class="rainbow-road" style="
+      background-position-x: calc(var(--scroll) * 5vw + 500px);
+      transform: translateY(-20pt);
+      "></div>
+    <div class="rainbow-road" style="
+    background-position-x: calc(var(--scroll) * -5vw - 600px);
+    transform: translateY(28pt);
+    "></div>
+    <h1>My Creations</h1>
+    <h3>feel free to try out stuff I made for fun!</h3><br>
+    <div class="block">
+      <a href="https://gnamimates.github.io/armorstand/" class="portal">
+        <img src="armorstand-editor.jpg" alt="Thumbnail"><br>
+        Armorstand Editor
+      </a>
+      <a href="https://gnamimates.github.io/wack-a-duck/" class="portal">
+        <img src="wakadak.jpg" alt="Thumbnail"><br>
+        Wack a Duck
+      </a>
+      <a href="https://gnamimates.github.io/classic/" class="portal">
+        <img src="legacy gn page.jpg" alt="Thumbnail"><br>
+        Legacy Page
+      </a>
+      <a href="https://gnamimates.github.io/rocket-miss/" class="portal">
+        <img src="rocketmis.jpg" alt="Thumbnail"><br>
+        Rocket Miss
+      </a>
+    </div>
+    <p>More info about me should appear here, come back nextime -GN</p>
+    
+  </div>
+</body>
+
 </html>

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+@import url(accent.css);
+
+:root{
+   image-rendering: pixelated;
+}
+
+html {
+   font-size: 12pt;
+   color: var(--light);
+   font-family: 'Heebo', sans-serif;
+}
+
+a {
+   text-decoration: none;
+   color: var(--dark);
+}
+
+a:hover {
+   text-decoration: underline;
+}
+
+/* ----------[ LOGO ]---------- */
+
+img.logo {
+   margin: 5px;
+}
+
+div.logo {
+   color: var(--accent3);
+   font-family: 'Oswald', sans-serif;
+   font-size: 20pt;
+}
+
+h1 {
+   font-size: 32pt;
+}
+
+
+
+img.pixelated {
+   image-rendering: pixelated;
+}
+
+img.shadow { 
+   -webkit-filter: drop-shadow(0px 5px 5px var(--shadow));
+   filter:         drop-shadow(0px 5px 5px var(--shadow)); 
+}
+
+.float-right {
+   float: right
+}
+
+.invert {
+   filter: invert(100%);
+ }
+
+
+a.cover {
+   margin: 0;
+   display: block;
+}
