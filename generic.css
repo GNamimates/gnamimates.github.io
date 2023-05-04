@@ -8,7 +8,7 @@
 
 html {
    font-size: 12pt;
-   color: var(--light);
+   color: var(--dark);
    font-family: 'Heebo', sans-serif;
 }
 
@@ -60,4 +60,15 @@ img.shadow {
 a.cover {
    margin: 0;
    display: block;
+}
+
+::-webkit-scrollbar {
+   width: 10px;
+   height: 10px;
+}
+::-webkit-scrollbar-track {
+   background-color: var(--accent6);
+}
+::-webkit-scrollbar-thumb {
+   background-color: var(--green2)
 }

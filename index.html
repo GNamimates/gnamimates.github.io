@@ -3,7 +3,7 @@
 <head>
   <title>GN's tools n stuff - Home</title>
   <script>
-    window.addEventListener('scroll', () => { document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight)); }, false);
+    window.addEventListener('scroll', () => { document.body.style.setProperty('--scroll', window.pageYOffset * 0.001); }, false);
   </script>
   <style>
     @import url(clr.css);
@@ -14,8 +14,9 @@
       background-color: var(--light);
       margin: 0;
       font-size: 15pt;
+      overflow-x: hidden;
     }
-    
+
     span.green {
       color: var(--green3);
     }
@@ -48,6 +49,7 @@
         url("hero/layer4.png"),
         url("hero/layer5.png"),
         url("hero/layer6.png");
+      backdrop-filter: blur(4px);
       background-size: cover, cover;
       background-position-y:
         0,
@@ -117,13 +119,20 @@
     }
 
     div.block {
-      display: flex;
-      flex-wrap:wrap;
+      width: 100%;
+      display: grid;
+      height: 400px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      grid-auto-rows: 100px 200px;
+      overflow-x: scroll;
+      overflow-y: hidden;
     }
 
     a.portal {
-      margin: 5px;
+      width: 100%;
     }
+
 
     h1 {
       font-family: 'Barlow', sans-serif;
@@ -163,27 +172,28 @@
     "></div>
     <h1>My Creations</h1>
     <h3>feel free to try out stuff I made for fun!</h3><br>
+  </div>
     <div class="block">
       <a href="https://gnamimates.github.io/armorstand/" class="portal">
-        <img src="armorstand-editor.jpg" alt="Thumbnail"><br>
+        <img src="armorstand-editor.jpg" alt="Thumbnail" class="portal"><br>
         Armorstand Editor
       </a>
       <a href="https://gnamimates.github.io/wack-a-duck/" class="portal">
-        <img src="wakadak.jpg" alt="Thumbnail"><br>
+        <img src="wakadak.jpg" alt="Thumbnail" class="portal"><br>
         Wack a Duck
       </a>
       <a href="https://gnamimates.github.io/classic/" class="portal">
-        <img src="legacy gn page.jpg" alt="Thumbnail"><br>
+        <img src="legacy gn page.jpg" alt="Thumbnail" class="portal"><br>
         Legacy Page
       </a>
       <a href="https://gnamimates.github.io/rocket-miss/" class="portal">
-        <img src="rocketmis.jpg" alt="Thumbnail"><br>
+        <img src="rocketmis.jpg" alt="Thumbnail" class="portal"><br>
         Rocket Miss
       </a>
     </div>
     <p>More info about me should appear here, come back nextime -GN</p>
-    
-  </div>
+
+  
 </body>
 
 </html>
