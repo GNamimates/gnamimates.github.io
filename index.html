@@ -120,23 +120,35 @@
 
     div.block {
       width: 100%;
-      display: grid;
+      display:flex;
       height: 400px;
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
       grid-auto-rows: 100px 200px;
-      overflow-x: scroll;
-      overflow-y: hidden;
-    }
-
-    a.portal {
-      width: 100%;
     }
 
 
     h1 {
       font-family: 'Barlow', sans-serif;
       line-height: 0;
+    }
+
+    img.portal {
+      border: solid white 4px;
+      border-radius: 5px;
+    }
+
+    div.footer {
+      background-color: black;
+      height:min-content;
+      padding-top: 12pt;
+    }
+
+    div.icon {
+      display: inline-block;
+      vertical-align: middle;
+      padding-right: 3px;
+      height: 15pt;
     }
   </style>
 </head>
@@ -170,30 +182,77 @@
     background-position-x: calc(var(--scroll) * -5vw - 600px);
     transform: translateY(28pt);
     "></div>
-    <h1>My Creations</h1>
-    <h3>feel free to try out stuff I made for fun!</h3><br>
   </div>
+
+  <div style="
+  margin: 0 auto;
+  max-width: 70rem;
+  ">
+  <h1>My Creations</h1>
+  <h3>feel free to try out stuff I made for fun!</h3>
     <div class="block">
-      <a href="https://gnamimates.github.io/armorstand/" class="portal">
+      <a href="https://gnamimates.github.io/armorstand/">
         <img src="armorstand-editor.jpg" alt="Thumbnail" class="portal"><br>
-        Armorstand Editor
       </a>
-      <a href="https://gnamimates.github.io/wack-a-duck/" class="portal">
+      <div>
+        <h1>Armorstand Editor</h1>
+        A Java Minecraft 1.16+ Armor Stand Poser made with the Godot Game Engine
+      </div>
+    </div>
+
+    <div class="block">
+      <div>
+        <h1>Wack a duck</h1>
+        A game where you click rubber duckies, made for a school project, no intentions in hurting actual ducks.
+      </div>    
+      <a href="https://gnamimates.github.io/wack-a-duck/">
         <img src="wakadak.jpg" alt="Thumbnail" class="portal"><br>
-        Wack a Duck
-      </a>
-      <a href="https://gnamimates.github.io/classic/" class="portal">
-        <img src="legacy gn page.jpg" alt="Thumbnail" class="portal"><br>
-        Legacy Page
-      </a>
-      <a href="https://gnamimates.github.io/rocket-miss/" class="portal">
-        <img src="rocketmis.jpg" alt="Thumbnail" class="portal"><br>
-        Rocket Miss
       </a>
     </div>
-    <p>More info about me should appear here, come back nextime -GN</p>
 
-  
+    <div class="block">
+      <a href="https://gnamimates.github.io/classic/">
+        <img src="legacy gn page.jpg" alt="Thumbnail" class="portal"><br>
+      </a>
+      <div>
+        <h1>Legacy Page</h1>
+        An older version of this "page", more like game, contains useful things like a Minecraft Skin viewer/downloader, Worst Pong Game, a good Minecraft Logo Generator for once.
+      </div>
+    </div>
+
+    <div class="block">
+      <div>
+        <h1>Rocker Miss</h1>
+        A game I made in under 6 hours, its purpose is to help me speed up time while waiting.
+      </div>    
+      <a href="https://gnamimates.github.io/rocket-miss/">
+        <img src="rocketmis.jpg" alt="Thumbnail" class="portal"><br>
+      </a>
+    </div>
+
+    <div class="block">
+      <a href="https://gnamimates.github.io/rocket-miss-dev/">
+        <img src="rocketmisdev.jpg" alt="Thumbnail" class="portal"><br>
+      </a>
+      <div>
+        <h1>Rocket Miss Dev [WIP]</h1>
+        A polished & rewritten version of the rocket miss game, still work in progress [WIP]
+      </div>
+    </div>
+
+  </div>
+  <div class="footer">
+    <div style="padding-left:5rem">
+      <h2>Contact Information</h2>
+    <div class="icon" style="content:url('icon-gmail.png')"></div> GNamimates188gmail.com <br>
+    <div class="icon" style="content:url('icon-discord.png')"></div> GNamimates#2357 <br>
+    <div class="icon" style="content:url('icon-youtube.png')"></div> <a href="https://www.youtube.com/@GNamimates/">@GNamimates</a> <br>
+    <div class="icon" style="content:url('icon-itch.png')"></div> <a href="http://gnamimates.itch.io/">GNamimates.itch.io</a> <br>
+    <div class="icon" style="content:url('icon-github.png')"></div> <a href="https://github.com/GNamimates">GNamimates</a> <br>
+    <br>
+    </div>
+    2023 © GNamimates (Green Neon), All Rights Reserved. <br>
+  </div>
 </body>
 
 </html>
