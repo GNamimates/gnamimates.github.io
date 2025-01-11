@@ -1,0 +1,22 @@
+@import "colors.css";
+:root{
+	--color-background: var(--dark-gray);
+	--color-background-border: var(--gray);
+	--color-header: var(--lighter-gray);
+	--color-hero-text: var(--white);
+	--color-text: var(--white);
+	--image-hero: url("img/hero.jpg");
+}
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0;
+	background-color: var(--color-background);
+	color: var(--color-text);
+}

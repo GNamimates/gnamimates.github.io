@@ -1,0 +1,52 @@
+/*
+Color Palette by Endesga
+https://lospec.com/palette-list/endesga-64
+*/
+:root {
+  --light-yellow: #ffeb57;
+  --yellow: #ffc825;
+  --dark-yellow: #ffa214;
+  --darker-yellow: #ed7614;
+
+  --white: #ffffff;
+  --lighter-blue-gray: #c7cfdd;
+  --light-blue-gray: #92a1b9;
+  --blue-gray: #424c6e;
+  --dark-blue-gray: #2a2f4e;
+  --darker-blue-gray: #1a1932;
+  --darkest-blue-gray: #0e071b;
+  --black: #000000;
+
+  --darker-gray: #131313;
+  --dark-gray: #272727;
+  --gray: #3d3d3d;
+  --light-gray: #5d5d5d;
+  --lighter-gray: #858585;
+  --bright-gray: #b4b4b4;
+
+  --darkest-blue: #00396d;
+  --darker-blue: #0069aa;
+  --dark-blue: #0098dc;
+  --blue: #00cdf9;
+  --light-blue: #0cf1ff;
+  --lighter-blue: #94fdff;
+
+  --lighter-red: #f68187;
+  --light-red: #f5555d;
+  --red: #ea323c;
+  --dark-red: #c42430;
+  --darker-red: #891e2b;
+  --darkest-red: #571c27;
+
+  --lighter-green: #d3fc7e;
+  --light-green: #99e65f;
+  --green: #5ac54f;
+  --dark-green: #33984b;
+  --darker-green: #1e6f50;
+  --darkest-green: #0c2e44;
+
+  --light-orange: #edab50;
+  --orange: #e07438;
+  --dark-orange: #c64524;
+  --darker-orange: #8e251d;
+}
