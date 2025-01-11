@@ -2,7 +2,6 @@
 :root{
 	--color-background: var(--dark-gray);
 	--color-background-border: var(--gray);
-	--color-header: var(--lighter-gray);
 	--color-hero-text: var(--white);
 	--color-text: var(--white);
 	--image-hero: url("img/hero.jpg");

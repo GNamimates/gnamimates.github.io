@@ -37,6 +37,7 @@ const themes = [
 		name: "Light",
 		background: "var(--white)",
 		backgroundBorder: "var(--light-gray)",
+		heroText: "var(--white)",
 		text: "var(--black)",
 		image: "url('img/hero.jpg')"
 	},
@@ -44,6 +45,7 @@ const themes = [
 		name: "Dark",
 		background: "var(--dark-gray)",
 		backgroundBorder: "var(--gray)",
+		heroText: "var(--white)",
 		text: "var(--white)",
 		image: "url('img/hero-dark.jpg')"
 	}
@@ -51,11 +53,12 @@ const themes = [
 
 
 function applyTheme(id) {
-	var themeData = themes[theme];
+	var themeData = themes[id];
 	document.documentElement.style.setProperty('--color-background', themeData.background);
 	document.documentElement.style.setProperty('--color-background-border', themeData.backgroundBorder);
 	document.documentElement.style.setProperty('--color-text', themeData.text);
+	document.documentElement.style.setProperty('--color-hero-text', themeData.heroText);
 	document.documentElement.style.setProperty('--image-hero', themeData.image);
 }
 
-applyTheme(0)
+applyTheme(1)
