@@ -61,4 +61,4 @@ function applyTheme(id) {
 	document.documentElement.style.setProperty('--image-hero', themeData.image);
 }
 
-applyTheme(1)
+applyTheme(0)
