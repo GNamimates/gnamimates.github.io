@@ -22,8 +22,8 @@
 		
 		<div class="middle item">
 			<div class="info-group">
-				<a class="info" href="">About</a>
-				<a class="info" href="">Contact</a>
+				<a class="info" id="button-games">Games</a>
+				<a class="info" id="button-about">About me</a>
 			</div>
 		</div>
 		
@@ -41,15 +41,16 @@ Blender <span class="highlight">3D Artist</span>
 <div class="sub-message">Animating & Game Developing since 2019 at the age of 14</div><div class="status">Currently at my 1st year of college <img class="flag" src="icons/ph-flag.webp" alt="", height="40"></div>
 		</div>
 	</div>
-	<h1 class="section-title">My Games</h1>
+	<h1 class="section-title" id="section-games">My Games</h1>
+	<div class="description">over the years, ive made a couple games for fun and some with friends. all of them are free to play. while im still in college learning Computer Science, ive already made a few games along the way, learning different programming languages and tools.</div>
 	
 	<div class="summary">
 		<a href="https://gnamimates.itch.io/gns-apparatus" target="_blank" rel="noreferrer noopener">
 			<div class="content"
 			style='--preview: url("https://img.itch.zone/aW1hZ2UvMjkwOTYyOC8xNzQwNDYyMC5wbmc=/794x1000/6aR%2BNB.png");'>
-			<div class="date">2024</div>
+			
 			<div class="info">
-				<h1>Hallway</h1>
+				<div class="title">Hallway<div class="date">2024</div></div>
 				a simple platformer game where you travel though hallways that act as portals.
 			</div>
 			</div>
@@ -57,9 +58,9 @@ Blender <span class="highlight">3D Artist</span>
 		<a href="https://gnamimates.itch.io/the-great-box-chase" target="_blank" rel="noreferrer noopener">
 			<div class="content"
 			style='--preview: url("https://img.itch.zone/aW1hZ2UvMjc2NDg2My8xNjQ5NDkyOC5wbmc=/794x1000/VEEedS.png");'>
-			<div class="date">2024</div>
+			
 			<div class="info">
-				<h1>The Great Box Chase</h1>
+				<div class="title">The Great Box Chase<div class="date">2024</div></div>
 				a "Typing Action Game" about you, a grass block named Greg who had your window broken by a delivery person that works for Azamon Beff Jesos.
 			</div>
 			</div>
@@ -67,9 +68,9 @@ Blender <span class="highlight">3D Artist</span>
 		<a href="https://gnamimates.itch.io/gns-apparatus" target="_blank" rel="noreferrer noopener">
 			<div class="content"
 			style='--preview: url("https://img.itch.zone/aW1hZ2UvMTIwMTY5OC83MDE4NTA0LnBuZw==/794x1000/R%2BI%2FnR.png");'>
-			<div class="date">2021</div>
+			
 			<div class="info">
-				<h1>GN's Apparatus</h1>
+				<div class="title">GN's Apparatus<div class="date">2021</div></div>
 				mechanical steam punk styled game where you do simple tasks in each levels, more stuff gets shown to you the more you progress
 			</div>
 			</div>
@@ -78,9 +79,9 @@ Blender <span class="highlight">3D Artist</span>
 		<a href="https://gnamimates.itch.io/the-great-box-chase" target="_blank" rel="noreferrer noopener">
 			<div class="content"
 			style='--preview: url(thumbnails/armorstand.jpg);'>
-			<div class="date">2023</div>
+			
 			<div class="info">
-				<h1>Armorstand Editor</h1>
+				<div class="title">Armorstand Editor<div class="date">2023</div></div>
 				A Minecraft Java Edition Armor Stand Poser for the versions 1.16 - 1.20.4
 			</div>
 			</div>
@@ -88,9 +89,9 @@ Blender <span class="highlight">3D Artist</span>
 		<a href="rocket-miss-dev" target="_blank" rel="noreferrer noopener">
 			<div class="content"
 			style='--preview: url(thumbnails/plane.jpg);'>
-			<div class="date">2023</div>
+			
 			<div class="info">
-				<h1>Rocket Miss</h1>
+				<div class="title">Rocket Miss<div class="date">2023</div></div>
 				a game made in 6 hours where you fly around avoiding smart rockets.
 			</div>
 			</div>
@@ -99,9 +100,8 @@ Blender <span class="highlight">3D Artist</span>
 		<a href="wack-a-duck" target="_blank" rel="noreferrer noopener">
 			<div class="content"
 			style='--preview: url(thumbnails/duck.jpg);'>
-			<div class="date">2023</div>
 			<div class="info">
-				<h1>Wack a Duck</h1>
+				<div class="title">Wack a Duck<div class="date">2023</div></div>
 				A game where you click rubber duckies, made for a school project, no intentions in hurting actual rubber duckies. 
 			</div>
 			</div>
@@ -123,6 +123,61 @@ Blender <span class="highlight">3D Artist</span>
 			html.style.setProperty("--bellow-hero", Math.max(Math.min(1,(percent) * 10),0));
 		}
 		scroll();
+	</script>
+	
+	<script>
+		const sections = ["games", "avatars", "models", "about-me"];
+
+			for (let i = 0; i < sections.length; i++) {
+				document.getElementById(`button-${sections[i]}`).addEventListener("click", () => {
+					const section = document.getElementById(`section-${sections[i]}`);
+					if (section) {
+						section.scrollIntoView({});
+					}
+				})
+			}
+
+
+				function scrollToElm(container, elm, duration) {
+					var pos = getRelativePos(elm);
+					scrollTo(container, pos.top, duration / 1000);  // duration in seconds
+				}
+
+				function getRelativePos(elm) {
+					var pPos = elm.parentNode.getBoundingClientRect(), // parent pos
+						cPos = elm.getBoundingClientRect(), // target pos
+						pos = {};
+
+					pos.top = cPos.top - pPos.top + elm.parentNode.scrollTop,
+						pos.right = cPos.right - pPos.right,
+						pos.bottom = cPos.bottom - pPos.bottom,
+						pos.left = cPos.left - pPos.left;
+
+					return pos;
+				}
+
+				function scrollTo(element, to, duration, onDone) {
+					var start = element.scrollTop,
+						change = to - start,
+						startTime = performance.now(),
+						val, now, elapsed, t;
+
+					function animateScroll() {
+						now = performance.now();
+						elapsed = (now - startTime) / 1000;
+						t = (elapsed / duration);
+
+						element.scrollTop = start + change * easeInOutQuad(t);
+
+						if (t < 1)
+							window.requestAnimationFrame(animateScroll);
+						else
+							onDone && onDone();
+					};
+
+					animateScroll();
+				
+			}
 	</script>
 	<script src="themeManager.js"></script>
 	
