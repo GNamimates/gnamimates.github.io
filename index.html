@@ -10,27 +10,387 @@
 	<link rel="stylesheet" href="styles/colors.css">
 	<link rel="stylesheet" href="styles/theme.css">
   	<style>
-		@import "index.css";
+		@keyframes slide-from-left {
+			0% {
+			 transform: translateX(-25%);
+			}
+			100% {
+			 transform: translateX(0);
+			}
+		}
+		
+		@keyframes slide-from-right {
+			0% {
+			 transform: translateX(25%);
+			}
+			100% {
+			 transform: translateX(0);
+			}
+		}
+		
+		@keyframes slide-from-top {
+			0% {
+			 transform: translateY(-25%);
+			}
+			100% {
+			 transform: translateY(0);
+			}
+		}
+		
+		@keyframes slide-from-bottom {
+			0% {
+			 transform: translateY(25%);
+			}
+			100% {
+			 transform: translateY(0);
+			}
+		}
+		
+		:root {
+			--scroll: 0;
+			--bellow-hero: 0;
+			--shadow: rgba(0, 0, 0, 0.579);
+		}
+		
+		a {
+			color: var(--green);
+			text-decoration: none;
+		}
+		
+		.footer span{
+			white-space: pre;
+		}
+		
+		body {
+			overflow-x: hidden;
+		}
+		
+		/*----- hero -----*/
+		
+		.hero {
+			width: 100%;
+			height: 100vh;
+			background-image: var(--image-hero);
+			background-size: cover;
+			background-position: 0rem calc(10rem * var(--scroll));
+			z-index: 1;
+		}
+		
+		.hero .message {
+			display: block;
+			position: absolute;
+			align-items: left;
+			top: 10rem;
+			left: min(100vw - 70vmax,5rem);
+			line-height: 3rem;
+		
+			white-space: pre;
+			font-family: "Inter", serif;
+			font-optical-sizing: auto;
+			font-size: 3rem;
+			color: var(--color-hero-text);
+			font-weight: 500;
+			text-shadow: 2rem calc(10rem * var(--scroll)) 2rem rgba(0, 0, 0, 0.558);
+			animation: 0.5s cubic-bezier(0.33, 1, 0.68, 1) 0s 1 slide-from-left;
+		}
+		
+		span.highlight{
+			font-weight: bold;
+			color: var(--light-green);
+		}
+		
+		.message .title{
+			font-size: 5rem;
+		}
+		.message .sub-message{
+			color: gray;
+			line-height: 2rem;
+			font-size: 1.5rem;
+			text-wrap: balance;
+			width: 30rem;
+		}
+		
+		.message .status{
+			color: var(--color-hero-text);
+			line-height: 2rem;
+			font-size: 1.5rem;
+			text-wrap: balance;
+			width: 30rem;
+		}
+		
+		.message .flag {
+			height: 2rem;
+			top: 0.5rem;
+			position: relative;
+		}
+		
+		.hero .logo {
+			min-height: 100%;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			margin: auto 0;
+			right: max(-10rem, calc(50% - 30rem));
+			user-select: none;
+		}
+		
+		@media (max-aspect-ratio: 2.1/3) {
+			.hero .message {
+				font-size: calc(10vw - 0.5rem);
+				left: 2rem;
+				line-height: calc(11vw - 0.5rem);
+			}
+			.message .title{
+				font-size: calc(16vw - 0.5rem);
+			}
+			.message .sub-message{
+				padding-top: 0.5rem;
+				width: 90vw;
+				font-size: calc(7vw - 0.5rem);
+				line-height: calc(8vw - 0.25rem);
+			}
+			.message .status{
+				padding-top: 1rem;
+				width: 90vw;
+				word-wrap:break-word;
+				font-size: calc(8vw - 0.5rem);
+				line-height: calc(3vw - 0.25rem);
+			}
+			.message .flag {
+				height: calc(8vw);
+				padding: 1rem;
+			}
+		}
+		
+		/*----- header -----*/
+		
+		.header {
+			width: 100vw;
+			height: 3rem;
+			display: flex;
+			align-items: center;
+			position: fixed;
+			z-index: 2;
+			justify-content: space-between;
+		
+			font-size: 1.5rem;
+			color: var(--color-hero-text);
+			
+			color: color-mix(in srgb, var(--color-hero-text),var(--color-text) calc(100% * var(--bellow-hero)));
+			background-color: color-mix(in srgb, transparent, var(--color-background) calc(100% * var(--bellow-hero)));
+			animation: 0.5s cubic-bezier(0.33, 1, 0.68, 1) 0s 1 slide-from-top;
+		}
+		
+		.header .logo {
+			height: 2rem;
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+		
+		.header .name {
+			box-sizing: border-box;
+			height: 100%;
+			line-height: 3rem;
+			text-overflow: clip;
+		}
+		/*Header*/
+		
+		.header .item {
+			flex: 1;
+			display: flex;
+			height: 100%;
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+		.header .left {
+			align-items: left;
+			line-height: inherit;
+		}
+		
+		.header .middle {
+			flex: 2;
+			align-items: center;
+			justify-content: center;
+			line-height: inherit;
+		}
+		
+		.header .right {
+			align-items: right;
+			flex-direction: row-reverse;
+			line-height: inherit;
+		}
+		
+		.header .info {
+			height: 100%;
+			text-decoration: none;
+			color: inherit;
+			margin: 0 1rem;
+			line-height: 3rem;
+		}
+		
+		@media (max-aspect-ratio: 2/3) {
+			.header .middle {display: none;}
+		}
+		
+		
+		/*----- summary -----*/
+		
+		.summary {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
+			width: calc(100% - 5rem);
+			margin: 0 0;
+			padding: 0 0;
+		}
+		
+		.summary .preview {
+			width: 100%;
+			height: 100%;
+		}
+		
+		.summary .content {
+			width: 100%;
+			aspect-ratio: 16/9;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-image: linear-gradient(to top, transparent 80%, var(--color-background)  120%), linear-gradient(to top,var(--color-background) -10%, transparent 70%), var(--preview);
+			vertical-align: bottom;
+			display: flex;
+			padding: 0.5rem;
+			box-sizing: border-box;
+			border-radius: 0.5rem;
+			border: 1px solid var(--color-background-border);
+			box-shadow: 0 0 1rem rgba(0, 0, 0, 0.112);
+		}
+		
+		.content *{
+			color: var(--color-text);
+		}
+		
+		.summary .content .info {
+			align-self: flex-end;
+			text-shadow: 0 0 0.5rem var(--shadow);
+		}
+		
+		.summary .content .info h1{
+			font-weight: bold;
+			line-height: 2rem;
+			font-size: 2rem;
+			margin: 0.5rem 0;
+			font-family: "Inter", serif;
+		}
+		
+		.summary .content .date {
+			position: absolute;
+			font-size: 3rem;
+			text-shadow: 0 0 1rem black;
+			font-family: "Inter", serif;
+		}
+		
+		@media (max-aspect-ratio: 3/2) {
+			.summary {
+				grid-template-columns: repeat(2, 1fr);
+				width: calc(100% - 3rem);
+				}
+		}
+		
+		@media (max-aspect-ratio: 2/3) {
+			.summary {
+				grid-template-columns: repeat(1, 1fr);
+				width: calc(100% - 2rem);
+				}
+		}
+		
+		h1.section-title {
+			font-size: 4rem;
+			font-weight: normal;
+			line-height: 4rem;
+			font-family: "Inter", serif;
+			text-align: center;
+		}
+		
+		/* ----- footer ----- */
+		
+		.footer {
+			margin-top: 2rem;
+			width: 100%;
+			height: 3rem;
+			line-height: 3rem;
+			background-color: black;
+			padding-left: 1rem;
+			box-sizing: border-box;
+			}
 	</style>
 <body>
+	
 	<div class="header">
-		<div class="left">
+		<div class="left item">
 			<img src="img/logo.png" class="logo">
 			<div class="name">GNamimates</div>
 		</div>
-		<div class="right">
+		
+		<div class="middle item">
 			<div class="info-group">
-				<a class="info" href="about">About</a>
-				<a class="info" href="contact">Contact</a>
+				<a class="info" href="">About</a>
+				<a class="info" href="">Contact</a>
 			</div>
+		</div>
+		
+		<div class="right item">
 			<a class="info material-symbols-outlined" href="">settings</a>
 		</div>
 	</div>
+	
 	<div class="hero">
-		<div class="message">Hello, <br> I am GN</div>
+		
+		<div class="message">
+<span class="title">Hi. I am GN</span>
+Godot <span class="highlight">Game Developer</span>
+Blender <span class="highlight">3D Artist</span>
+<div class="sub-message">Animating & Game Developing since 2019 at the age of 14</div><div class="status">Currently at my 1st year of college <img class="flag" src="icons/ph-flag.webp" alt="", height="40"></div>
+		</div>
 	</div>
-	a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>
-	a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>a <br>
+	<h1 class="section-title">My Offline Games</h1>
+	
+	<div class="summary">
+		<a href="https://gnamimates.itch.io/gns-apparatus" target="_blank" rel="noreferrer noopener">
+			<div class="content"
+			style='--preview: url("https://img.itch.zone/aW1hZ2UvMjkwOTYyOC8xNzQwNDYyMC5wbmc=/794x1000/6aR%2BNB.png");'>
+			<div class="date">2024</div>
+			<div class="info">
+				<h1>Hallway</h1>
+				a simple platformer game where you travel though hallways that act as portals.
+			</div>
+			</div>
+		</a>
+		<a href="https://gnamimates.itch.io/the-great-box-chase" target="_blank" rel="noreferrer noopener">
+			<div class="content"
+			style='--preview: url("https://img.itch.zone/aW1hZ2UvMjc2NDg2My8xNjQ5NDkyOC5wbmc=/794x1000/VEEedS.png");'>
+			<div class="date">2024</div>
+			<div class="info">
+				<h1>The Great Box Chase</h1>
+				a "Typing Action Game" about you, a grass block named Greg who had your window broken by a delivery person that works for Azamon Beff Jesos.
+			</div>
+			</div>
+		</a>
+		<a href="https://gnamimates.itch.io/gns-apparatus" target="_blank" rel="noreferrer noopener">
+			<div class="content"
+			style='--preview: url("https://img.itch.zone/aW1hZ2UvMTIwMTY5OC83MDE4NTA0LnBuZw==/794x1000/R%2BI%2FnR.png");'>
+			<div class="date">2021</div>
+			<div class="info">
+				<h1>GN's Apparatus</h1>
+				mechanical steam punk styled game where you do simple tasks in each levels, more stuff gets shown to you the more you progress
+			</div>
+			</div>
+		</a>
+	</div>
+	
+	<div class="footer">
+		<span>2021-2024 @ GN (Green Neon) amimates,   All rights reserved</span>
+	</div>
+	
+	
 	<script>
 		window.addEventListener("scroll", scroll);
 		window.addEventListener("resize", scroll);
@@ -38,10 +398,11 @@
 			const html = document.documentElement;
 			const percent = html.scrollTop / html.clientHeight;
 			html.style.setProperty("--scroll", percent);
-			html.style.setProperty("--bellow-hero", Math.max(Math.min(1,(percent - 0.85) * 10),0));
+			html.style.setProperty("--bellow-hero", Math.max(Math.min(1,(percent) * 10),0));
 		}
 		scroll();
 	</script>
 	<script src="themeManager.js"></script>
+	
 </body>
 </html>
