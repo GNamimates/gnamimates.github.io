@@ -40,11 +40,6 @@
 	--shadow: rgba(0, 0, 0, 0.579);
 }
 
-* {
-	scroll-behavior: smooth;
-	scroll-margin-top: 3rem;
-}
-
 a {
 	color: var(--green);
 	text-decoration: none;
@@ -59,6 +54,7 @@ a {
 body {
 	overflow-x: hidden;
 	min-height: 100vh;
+	scroll-behavior: smooth;
 }
 
 /*----- hero -----*/
@@ -323,6 +319,7 @@ span.highlight{
 		line-height: 4rem;
 		font-family: "Inter", serif;
 		text-align: center;
+		scroll-margin-top: 3rem;
 	}
 	.description {
 		width: 50%;
